@@ -11,5 +11,6 @@ config_version=5
 [application]
 
 config/name="SummerComfyJam"
+run/main_scene="uid://cxgbhfcop3rw8"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"

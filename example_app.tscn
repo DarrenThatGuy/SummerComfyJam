@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://doan6lgts2ceb"]
+
+[ext_resource type="Script" uid="uid://cov0rxnsont18" path="res://phone.gd" id="1_pfq2b"]
+[ext_resource type="Script" uid="uid://8daijt5acces" path="res://button.gd" id="2_xjp2a"]
+
+[sub_resource type="Theme" id="Theme_pfq2b"]
+
+[node name="ExampleApp" type="Polygon2D"]
+scale = Vector2(1.58, 1.6439791)
+polygon = PackedVector2Array(367, 35, 367, 417, 566, 417, 565.60046, 34.911854)
+script = ExtResource("1_pfq2b")
+
+[node name="HomeButton" type="Button" parent="."]
+offset_left = 462.02533
+offset_top = 399.64017
+offset_right = 476.02533
+offset_bottom = 412.64017
+script = ExtResource("2_xjp2a")
+scene_path = "res://main_screen.tscn"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 428.48102
+offset_top = 113.14013
+offset_right = 494.48102
+offset_bottom = 136.14014
+theme = SubResource("Theme_pfq2b")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Example"
+
+[connection signal="pressed" from="HomeButton" to="HomeButton" method="_on_pressed"]
+[connection signal="send_button_data" from="HomeButton" to="." method="_on_send_button_data"]

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxgbhfcop3rw8"]
+
+[ext_resource type="Script" uid="uid://dxkxc7j8mftsl" path="res://phone_container.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://cjfwcpwlke76s" path="res://main_screen.tscn" id="1_ig7tw"]
+
+[node name="Main" type="Node2D"]
+
+[node name="PhoneContainer" type="Node2D" parent="."]
+script = ExtResource("1_0xm2m")
+
+[node name="MainScreen" parent="PhoneContainer" instance=ExtResource("1_ig7tw")]
+position = Vector2(-123, -53)
+
+[connection signal="change_phone_scene" from="PhoneContainer/MainScreen" to="PhoneContainer" method="_on_change_phone_scene"]
