@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://0x6umgb1ordh"]
+
+[ext_resource type="Script" uid="uid://cyqvusi1m1wtb" path="res://MiniGames/FlappyBird/player_bird.gd" id="1_kmbn4"]
+[ext_resource type="Texture2D" uid="uid://vn0yxtyr7ohj" path="res://icon.svg" id="1_mplop"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kmbn4"]
+size = Vector2(50, 50)
+
+[node name="PlayerBird" type="CharacterBody2D" unique_id=1327414920]
+script = ExtResource("1_kmbn4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=471930211]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_mplop")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1090060499]
+shape = SubResource("RectangleShape2D_kmbn4")
+
+[node name="CameraLoc" type="Marker2D" parent="." unique_id=279576361]
+position = Vector2(250, 0)

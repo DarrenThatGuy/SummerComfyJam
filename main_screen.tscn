@@ -1,14 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjfwcpwlke76s"]
+[gd_scene format=3 uid="uid://cjfwcpwlke76s"]
 
 [ext_resource type="Script" uid="uid://cov0rxnsont18" path="res://phone.gd" id="1_w0p2i"]
 [ext_resource type="Script" uid="uid://8daijt5acces" path="res://button.gd" id="2_7a4el"]
 
-[node name="MainScreen" type="Polygon2D"]
+[node name="MainScreen" type="Polygon2D" unique_id=1608592822]
 scale = Vector2(1.58, 1.6439791)
 polygon = PackedVector2Array(367, 35, 367, 417, 566, 417, 565.60046, 34.911854)
 script = ExtResource("1_w0p2i")
 
-[node name="HomeButton" type="Button" parent="."]
+[node name="HomeButton" type="Button" parent="." unique_id=1655983480]
 offset_left = 462.02533
 offset_top = 399.64017
 offset_right = 476.02533
@@ -16,7 +16,7 @@ offset_bottom = 412.64017
 script = ExtResource("2_7a4el")
 scene_path = "res://main_screen.tscn"
 
-[node name="ExampleAppButton" type="Button" parent="."]
+[node name="ExampleAppButton" type="Button" parent="." unique_id=2037821342]
 offset_left = 384.81012
 offset_top = 48.662422
 offset_right = 407.59494
@@ -24,7 +24,17 @@ offset_bottom = 69.34394
 script = ExtResource("2_7a4el")
 scene_path = "res://example_app.tscn"
 
+[node name="FlappyBirdButton" type="Button" parent="." unique_id=273374972]
+offset_left = 422.7848
+offset_top = 49.270702
+offset_right = 445.5696
+offset_bottom = 69.952225
+script = ExtResource("2_7a4el")
+scene_path = "res://MiniGames/game_container.tscn"
+
 [connection signal="pressed" from="HomeButton" to="HomeButton" method="_on_pressed"]
 [connection signal="send_button_data" from="HomeButton" to="." method="_on_send_button_data"]
 [connection signal="pressed" from="ExampleAppButton" to="ExampleAppButton" method="_on_pressed"]
 [connection signal="send_button_data" from="ExampleAppButton" to="." method="_on_send_button_data"]
+[connection signal="pressed" from="FlappyBirdButton" to="FlappyBirdButton" method="_on_pressed"]
+[connection signal="send_button_data" from="FlappyBirdButton" to="." method="_on_send_button_data"]
