@@ -1,7 +1,8 @@
 class_name AppButton extends Button
 
 @export var scene_path : String
-signal send_button_data(scene)
+@export_enum("EnteredHomeScreen", "EnteredExampleApp", "UnlockExampleLockedApp", "LockedExampleApp") var event : String
+signal send_button_data(scene, event)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,4 +15,4 @@ func _process(delta):
 
 
 func _on_pressed():
-	send_button_data.emit(scene_path)
+	send_button_data.emit(scene_path, event)

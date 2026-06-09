@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dqm363r6dv2a8"]
+
+[ext_resource type="Script" uid="uid://cov0rxnsont18" path="res://phone.gd" id="1_iof8v"]
+[ext_resource type="Script" uid="uid://8daijt5acces" path="res://button.gd" id="2_p87b6"]
+
+[sub_resource type="Theme" id="Theme_pfq2b"]
+
+[node name="ExampleApp" type="Polygon2D" unique_id=1481380087]
+scale = Vector2(1.58, 1.6439791)
+polygon = PackedVector2Array(367, 35, 367, 417, 566, 417, 565.60046, 34.911854)
+script = ExtResource("1_iof8v")
+
+[node name="HomeButton" type="Button" parent="." unique_id=2019367854]
+offset_left = 455.6962
+offset_top = 399.03186
+offset_right = 469.6962
+offset_bottom = 412.03186
+script = ExtResource("2_p87b6")
+scene_path = "res://main_screen.tscn"
+event = "EnteredHomeScreen"
+
+[node name="Label" type="Label" parent="." unique_id=957921937]
+offset_left = 405.0633
+offset_top = 111.92357
+offset_right = 533.0633
+offset_bottom = 134.92358
+theme = SubResource("Theme_pfq2b")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Locked_Example"
+
+[connection signal="pressed" from="HomeButton" to="HomeButton" method="_on_pressed"]
+[connection signal="send_button_data" from="HomeButton" to="." method="_on_send_button_data"]

@@ -1,0 +1,16 @@
+~ start
+Welcome to your phone!
+...
+Yeah, there's not a lot here...
+Lets try that app right there!
+=> END
+
+~ ExampleApp
+Jeez, We don't even have a real app huh...
+Wait! There's a locked app!
+Maybe there's Something there!
+=> END
+
+~ LockedExampleApp
+God Dammit...
+=> END

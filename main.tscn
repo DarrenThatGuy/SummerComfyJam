@@ -1,14 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxgbhfcop3rw8"]
+[gd_scene format=3 uid="uid://cxgbhfcop3rw8"]
 
 [ext_resource type="Script" uid="uid://dxkxc7j8mftsl" path="res://phone_container.gd" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://cpdga684yprnb" path="res://event_handler.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://cjfwcpwlke76s" path="res://main_screen.tscn" id="1_ig7tw"]
+[ext_resource type="Resource" uid="uid://clns3kscyxtqw" path="res://GameDialogue.dialogue" id="2_1bvp3"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" unique_id=9885645]
 
-[node name="PhoneContainer" type="Node2D" parent="."]
+[node name="EventHandler" type="Node2D" parent="." unique_id=599787324]
+script = ExtResource("1_h2yge")
+dialogue_resource = ExtResource("2_1bvp3")
+
+[node name="PhoneContainer" type="Node2D" parent="." unique_id=671539803]
 script = ExtResource("1_0xm2m")
 
-[node name="MainScreen" parent="PhoneContainer" instance=ExtResource("1_ig7tw")]
+[node name="MainScreen" parent="PhoneContainer" unique_id=628004550 instance=ExtResource("1_ig7tw")]
 position = Vector2(-123, -53)
 
+[connection signal="check_events" from="PhoneContainer" to="EventHandler" method="_on_phone_container_check_events"]
 [connection signal="change_phone_scene" from="PhoneContainer/MainScreen" to="PhoneContainer" method="_on_change_phone_scene"]
