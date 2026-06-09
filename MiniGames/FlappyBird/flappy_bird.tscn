@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://4ui0dxh1he3s"]
+
+[ext_resource type="Script" uid="uid://dap75b46h8oen" path="res://MiniGames/FlappyBird/flappy_bird.gd" id="1_fmwsr"]
+[ext_resource type="PackedScene" uid="uid://0x6umgb1ordh" path="res://MiniGames/FlappyBird/player_bird.tscn" id="1_i5owb"]
+[ext_resource type="PackedScene" uid="uid://dqk1ngsdftobn" path="res://MiniGames/FlappyBird/obstacle.tscn" id="2_2wmiw"]
+
+[sub_resource type="Gradient" id="Gradient_i5owb"]
+offsets = PackedFloat32Array(0, 0.16566265, 0.20180723, 0.30421686, 0.48493975, 1)
+colors = PackedColorArray(0.3882353, 0.3764706, 0, 1, 0.3555525, 0.41410533, 0.08418299, 1, 0.30064538, 0.4773317, 0.2256104, 1, 0.28065202, 0.50035435, 0.27710843, 1, 0.13327764, 0.6700582, 0.6567091, 1, 0, 0.8235294, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fmwsr"]
+gradient = SubResource("Gradient_i5owb")
+width = 16383
+height = 650
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2wmiw"]
+size = Vector2(99999, 10)
+
+[sub_resource type="Gradient" id="Gradient_2wmiw"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1r1n8"]
+gradient = SubResource("Gradient_2wmiw")
+width = 1360
+height = 680
+
+[node name="FlappyBird" type="Node2D" unique_id=1442726256]
+script = ExtResource("1_fmwsr")
+obstacle = ExtResource("2_2wmiw")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1274415242]
+position = Vector2(8256, 322)
+scale = Vector2(99, 1)
+texture = SubResource("GradientTexture2D_fmwsr")
+
+[node name="PlayerBird" parent="." unique_id=1327414920 node_paths=PackedStringArray("camera") instance=ExtResource("1_i5owb")]
+position = Vector2(79, 135)
+camera = NodePath("../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2078137090]
+position = Vector2(577, 320)
+
+[node name="Obstacles" type="Marker2D" parent="." unique_id=1432355942]
+position = Vector2(575, 320)
+
+[node name="Ceiling" type="StaticBody2D" parent="." unique_id=963789742]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling" unique_id=923420669]
+shape = SubResource("RectangleShape2D_2wmiw")
+
+[node name="GameOver" type="Area2D" parent="." unique_id=596575113]
+position = Vector2(0, 750)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameOver" unique_id=225400925]
+shape = SubResource("RectangleShape2D_2wmiw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=754093744]
+visible = false
+position = Vector2(679, 338)
+texture = SubResource("GradientTexture2D_1r1n8")
+
+[connection signal="body_entered" from="GameOver" to="." method="_on_game_over_body_entered"]

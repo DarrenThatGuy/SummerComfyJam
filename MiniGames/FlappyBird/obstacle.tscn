@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dqk1ngsdftobn"]
+
+[ext_resource type="Script" uid="uid://ctsaphuqw4vu" path="res://MiniGames/FlappyBird/obstacle.gd" id="1_beqn1"]
+
+[sub_resource type="Gradient" id="Gradient_qawpt"]
+offsets = PackedFloat32Array(0, 0.50301206, 1)
+colors = PackedColorArray(0, 1, 0, 1, 0.10240964, 0.62688404, 0.10240964, 1, 0, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_beqn1"]
+gradient = SubResource("Gradient_qawpt")
+height = 512
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tfgud"]
+size = Vector2(64, 512)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s3ain"]
+size = Vector2(10, 148)
+
+[node name="Obstacle" type="Node2D" unique_id=1216619389]
+script = ExtResource("1_beqn1")
+
+[node name="Upper" type="Area2D" parent="." unique_id=749012238]
+position = Vector2(0, -330)
+
+[node name="Sprite2D" type="Sprite2D" parent="Upper" unique_id=644288566]
+texture = SubResource("GradientTexture2D_beqn1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Upper" unique_id=1033930660]
+shape = SubResource("RectangleShape2D_tfgud")
+
+[node name="Lower" type="Area2D" parent="." unique_id=668428398]
+position = Vector2(0, 330)
+
+[node name="Sprite2D" type="Sprite2D" parent="Lower" unique_id=1230545354]
+texture = SubResource("GradientTexture2D_beqn1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lower" unique_id=905007279]
+shape = SubResource("RectangleShape2D_tfgud")
+
+[node name="Score" type="Area2D" parent="." unique_id=2140090237]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Score" unique_id=1280009394]
+position = Vector2(27, 0)
+shape = SubResource("RectangleShape2D_s3ain")
+
+[connection signal="body_entered" from="Upper" to="." method="_on_upper_body_entered"]
+[connection signal="body_entered" from="Lower" to="." method="_on_lower_body_entered"]
+[connection signal="body_entered" from="Score" to="." method="_on_score_body_entered"]
