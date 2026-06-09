@@ -41,10 +41,12 @@ scene_path = "res://locked_app.tscn"
 event = "LockedExampleApp"
 
 [node name="FlappyBirdButton" type="Button" parent="." unique_id=273374972]
-offset_left = 422.7848
-offset_top = 49.270702
-offset_right = 445.5696
-offset_bottom = 69.952225
+offset_left = 436.07593
+offset_top = 48.662422
+offset_right = 458.86075
+offset_bottom = 69.34395
+theme_override_font_sizes/font_size = 4
+text = "flappy"
 script = ExtResource("2_7a4el")
 scene_path = "res://MiniGames/game_container.tscn"
 
@@ -52,7 +54,7 @@ scene_path = "res://MiniGames/game_container.tscn"
 [connection signal="send_button_data" from="HomeButton" to="." method="_on_send_button_data"]
 [connection signal="pressed" from="ExampleAppButton" to="ExampleAppButton" method="_on_pressed"]
 [connection signal="send_button_data" from="ExampleAppButton" to="." method="_on_send_button_data"]
-[connection signal="pressed" from="FlappyBirdButton" to="FlappyBirdButton" method="_on_pressed"]
-[connection signal="send_button_data" from="FlappyBirdButton" to="." method="_on_send_button_data"]
 [connection signal="pressed" from="LockedAppButton" to="LockedAppButton" method="_on_pressed"]
 [connection signal="send_button_data" from="LockedAppButton" to="." method="_on_send_button_data"]
+[connection signal="pressed" from="FlappyBirdButton" to="FlappyBirdButton" method="_on_pressed"]
+[connection signal="send_button_data" from="FlappyBirdButton" to="." method="_on_send_button_data"]
