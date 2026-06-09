@@ -49,6 +49,7 @@ theme_override_font_sizes/font_size = 4
 text = "flappy"
 script = ExtResource("2_7a4el")
 scene_path = "res://MiniGames/game_container.tscn"
+event = "EnteredFlappyBird"
 
 [connection signal="pressed" from="HomeButton" to="HomeButton" method="_on_pressed"]
 [connection signal="send_button_data" from="HomeButton" to="." method="_on_send_button_data"]
