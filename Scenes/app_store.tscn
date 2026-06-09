@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://do1a55lrsy48w"]
+
+[ext_resource type="Script" uid="uid://cov0rxnsont18" path="res://PhoneResources/phone.gd" id="1_0l55h"]
+[ext_resource type="Script" uid="uid://8daijt5acces" path="res://PhoneResources/button.gd" id="2_7cpur"]
+
+[sub_resource type="Theme" id="Theme_pfq2b"]
+
+[node name="ExampleApp" type="Polygon2D" unique_id=1481380087]
+scale = Vector2(1.58, 1.6439791)
+polygon = PackedVector2Array(367, 35, 367, 417, 566, 417, 565.60046, 34.911854)
+script = ExtResource("1_0l55h")
+
+[node name="HomeButton" type="Button" parent="." unique_id=2019367854]
+offset_left = 455.6962
+offset_top = 399.03186
+offset_right = 469.6962
+offset_bottom = 412.03186
+script = ExtResource("2_7cpur")
+scene_path = "res://Scenes/main_screen.tscn"
+event = "EnteredHomeScreen"
+
+[node name="FlappyBirdUnlock" type="Button" parent="." unique_id=639367038]
+offset_left = 415.18988
+offset_top = 92.458595
+offset_right = 516.1899
+offset_bottom = 136.25476
+text = "Flappy Logo"
+script = ExtResource("2_7cpur")
+event = "DownloadFlappyBird"
+
+[node name="SpaceRockUnlock" type="Button" parent="." unique_id=259229656]
+offset_left = 415.18988
+offset_top = 145.98724
+offset_right = 518.1899
+offset_bottom = 189.78342
+text = "Space Rocks"
+script = ExtResource("2_7cpur")
+event = "DownloadSpaceGame"
+
+[node name="PongUnlock" type="Button" parent="." unique_id=344102645]
+offset_left = 400.0
+offset_top = 199.51593
+offset_right = 538.0
+offset_bottom = 243.3121
+text = "Definitely Tennis"
+script = ExtResource("2_7cpur")
+event = "DownloadPong"
+
+[node name="BreakoutUnlock" type="Button" parent="." unique_id=1717252083]
+offset_left = 415.18988
+offset_top = 253.04459
+offset_right = 512.1899
+offset_bottom = 296.84076
+text = "Blockout"
+script = ExtResource("2_7cpur")
+event = "DownloadBreakout"
+
+[node name="Secret Unlock" type="Button" parent="." unique_id=1916333751]
+offset_left = 400.0
+offset_top = 306.57324
+offset_right = 536.0
+offset_bottom = 350.36942
+disabled = true
+text = "D-Lux AI v.32142"
+script = ExtResource("2_7cpur")
+event = "UnlockExampleLockedApp"
+
+[node name="Label" type="Label" parent="." unique_id=957921937]
+offset_left = 400.0
+offset_top = 48.66242
+offset_right = 533.0
+offset_bottom = 71.66243
+theme = SubResource("Theme_pfq2b")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Brand New Apps!"
+
+[connection signal="pressed" from="HomeButton" to="HomeButton" method="_on_pressed"]
+[connection signal="send_button_data" from="HomeButton" to="." method="_on_send_button_data"]
+[connection signal="pressed" from="FlappyBirdUnlock" to="FlappyBirdUnlock" method="_on_pressed"]
+[connection signal="send_button_data" from="FlappyBirdUnlock" to="." method="_on_send_button_data"]
+[connection signal="pressed" from="SpaceRockUnlock" to="SpaceRockUnlock" method="_on_pressed"]
+[connection signal="send_button_data" from="SpaceRockUnlock" to="." method="_on_send_button_data"]
+[connection signal="pressed" from="PongUnlock" to="PongUnlock" method="_on_pressed"]
+[connection signal="send_button_data" from="PongUnlock" to="." method="_on_send_button_data"]
+[connection signal="pressed" from="BreakoutUnlock" to="BreakoutUnlock" method="_on_pressed"]
+[connection signal="send_button_data" from="BreakoutUnlock" to="." method="_on_send_button_data"]
+[connection signal="pressed" from="Secret Unlock" to="Secret Unlock" method="_on_pressed"]
+[connection signal="send_button_data" from="Secret Unlock" to="." method="_on_send_button_data"]

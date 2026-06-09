@@ -1,6 +1,6 @@
 extends Control
 
-signal change_phone_scene(scene_change)
+signal change_phone_scene(scene_change, event)
 
 @onready var viewport : SubViewport = $SubViewportContainer/SubViewport
 
@@ -18,4 +18,4 @@ func _on_restart() -> void:
 	setup(load("res://MiniGames/FlappyBird/flappy_bird.tscn"))
 
 func _on_home_button_pressed() -> void:
-	change_phone_scene.emit("res://main_screen.tscn")
+	change_phone_scene.emit("res://Scenes/main_screen.tscn", 'EnteredHomeScreen')

@@ -6,7 +6,7 @@ var current_scene
 
 func _ready():
 	current_scene = "res://main_screen.tscn"
-	DialogueManager.show_example_dialogue_balloon(load("res://GameDialogue.dialogue"), 'start')
+	#DialogueManager.show_example_dialogue_balloon(load("res://GameDialogue.dialogue"), 'start')
 func true_event(event):
 	EventTracker.events[event] += 1
 func _on_phone_container_check_events(event, scene):
@@ -21,7 +21,7 @@ func _on_phone_container_check_events(event, scene):
 		match EventTracker.events['EnteredExampleApp']:
 			1:
 				print("First Time Entering Example App")
-				DialogueManager.show_example_dialogue_balloon(load("res://GameDialogue.dialogue"), 'ExampleApp')
+				#DialogueManager.show_example_dialogue_balloon(load("res://GameDialogue.dialogue"), 'ExampleApp')
 			var n when n > 1:
 				print("More than First Time Entering Example App")
 			_:
@@ -29,4 +29,5 @@ func _on_phone_container_check_events(event, scene):
 	elif current_scene == "res://locked_app.tscn":
 		match EventTracker.events['LockedExampleApp']:
 			1:
-				DialogueManager.show_example_dialogue_balloon(load("res://GameDialogue.dialogue"), 'LockedExampleApp')
+				#DialogueManager.show_example_dialogue_balloon(load("res://GameDialogue.dialogue"), 'LockedExampleApp')
+				pass

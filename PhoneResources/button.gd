@@ -1,7 +1,7 @@
 class_name AppButton extends Button
 
 @export var scene_path : String
-@export_enum("EnteredHomeScreen", "EnteredExampleApp", "UnlockExampleLockedApp", "LockedExampleApp", "EnteredFlappyBird") var event : String
+@export_enum("EnteredHomeScreen", "EnteredExampleApp", "UnlockExampleLockedApp", "LockedExampleApp", "EnteredFlappyBird", "EnteredAppStore", "DownloadFlappyBird", "DownloadSpaceGame", "DownloadPong", "DownloadBreakout") var event : String
 signal send_button_data(scene, event)
 
 # Called when the node enters the scene tree for the first time.

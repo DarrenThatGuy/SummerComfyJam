@@ -56,8 +56,16 @@ func _on_game_over_body_entered(body: Node2D) -> void:
 		body.dead = true
 		body.speed = 0
 		
+		# Update Player High Score
+		if EventTracker.scores['FlappyBird'] < score:
+			EventTracker.scores["FlappyBird"] = score
+		
 		# show game over screen
+		
 		var node : Control = game_over_screen.instantiate()
 		add_child(node)
 		node.position = $Camera2D.position # for some reason, this flips the text?
+		
 		game_over = true
+		
+	
