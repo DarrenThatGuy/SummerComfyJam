@@ -1,28 +1,44 @@
 [gd_scene format=3 uid="uid://cjfwcpwlke76s"]
 
-[ext_resource type="Script" uid="uid://cov0rxnsont18" path="res://phone.gd" id="1_w0p2i"]
+[ext_resource type="Script" uid="uid://jacf2g6ii1im" path="res://MainScreen.gd" id="1_w0p2i"]
 [ext_resource type="Script" uid="uid://8daijt5acces" path="res://button.gd" id="2_7a4el"]
 
-[node name="MainScreen" type="Polygon2D" unique_id=1608592822]
+[node name="MainScreen" type="Polygon2D" unique_id=372573881]
 scale = Vector2(1.58, 1.6439791)
 polygon = PackedVector2Array(367, 35, 367, 417, 566, 417, 565.60046, 34.911854)
 script = ExtResource("1_w0p2i")
 
-[node name="HomeButton" type="Button" parent="." unique_id=1655983480]
+[node name="HomeButton" type="Button" parent="." unique_id=40921591]
 offset_left = 462.02533
 offset_top = 399.64017
 offset_right = 476.02533
 offset_bottom = 412.64017
 script = ExtResource("2_7a4el")
 scene_path = "res://main_screen.tscn"
+event = "EnteredHomeScreen"
 
-[node name="ExampleAppButton" type="Button" parent="." unique_id=2037821342]
+[node name="ExampleAppButton" type="Button" parent="." unique_id=2003492278]
 offset_left = 384.81012
 offset_top = 48.662422
 offset_right = 407.59494
 offset_bottom = 69.34394
+theme_override_font_sizes/font_size = 3
+text = "unlocked"
 script = ExtResource("2_7a4el")
 scene_path = "res://example_app.tscn"
+event = "EnteredExampleApp"
+
+[node name="LockedAppButton" type="Button" parent="." unique_id=470468188]
+offset_left = 410.1266
+offset_top = 48.662422
+offset_right = 432.9114
+offset_bottom = 69.34394
+theme_override_font_sizes/font_size = 4
+disabled = true
+text = "locked"
+script = ExtResource("2_7a4el")
+scene_path = "res://locked_app.tscn"
+event = "LockedExampleApp"
 
 [node name="FlappyBirdButton" type="Button" parent="." unique_id=273374972]
 offset_left = 422.7848
@@ -38,3 +54,5 @@ scene_path = "res://MiniGames/game_container.tscn"
 [connection signal="send_button_data" from="ExampleAppButton" to="." method="_on_send_button_data"]
 [connection signal="pressed" from="FlappyBirdButton" to="FlappyBirdButton" method="_on_pressed"]
 [connection signal="send_button_data" from="FlappyBirdButton" to="." method="_on_send_button_data"]
+[connection signal="pressed" from="LockedAppButton" to="LockedAppButton" method="_on_pressed"]
+[connection signal="send_button_data" from="LockedAppButton" to="." method="_on_send_button_data"]
