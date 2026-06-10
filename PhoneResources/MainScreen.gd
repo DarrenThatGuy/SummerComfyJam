@@ -8,6 +8,8 @@ func _ready():
 		$LockedAppButton.disabled = false
 	if EventTracker.events['DownloadFlappyBird'] > 0:
 		$FlappyBirdButton.visible = true
+	if EventTracker.events['DownloadSpaceGame'] > 0:
+		$SpaceGameButton.visible = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

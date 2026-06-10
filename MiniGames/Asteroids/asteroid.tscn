@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://c483uopwqo8uc"]
+
+[ext_resource type="Script" uid="uid://dbo7ipei2w73w" path="res://MiniGames/Asteroids/asteroid.gd" id="1_cn881"]
+
+[sub_resource type="Gradient" id="Gradient_3d1mm"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.7108434)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cn881"]
+gradient = SubResource("Gradient_3d1mm")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i6ded"]
+radius = 32.0
+
+[node name="Asteroid" type="RigidBody2D" unique_id=2126567224]
+collision_layer = 2
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
+linear_damp = 20.0
+angular_damp = 20.0
+script = ExtResource("1_cn881")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1879643892]
+texture = SubResource("GradientTexture2D_cn881")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1544605360]
+shape = SubResource("CircleShape2D_i6ded")

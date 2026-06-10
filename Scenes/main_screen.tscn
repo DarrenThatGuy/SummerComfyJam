@@ -53,15 +53,27 @@ event = "LockedExampleApp"
 
 [node name="FlappyBirdButton" type="Button" parent="." unique_id=273374972]
 visible = false
-offset_left = 460.7595
+offset_left = 460.1266
 offset_top = 48.66242
-offset_right = 483.54428
+offset_right = 482.91138
 offset_bottom = 69.34395
 theme_override_font_sizes/font_size = 4
 text = "flappy"
 script = ExtResource("2_7a4el")
 scene_path = "res://MiniGames/game_container.tscn"
 event = "EnteredFlappyBird"
+
+[node name="SpaceGameButton" type="Button" parent="." unique_id=934602556]
+visible = false
+offset_left = 485.443
+offset_top = 48.66242
+offset_right = 508.22778
+offset_bottom = 69.34395
+theme_override_font_sizes/font_size = 4
+text = "flappy"
+script = ExtResource("2_7a4el")
+scene_path = "res://MiniGames/game_container.tscn"
+event = "EnteredSpaceGame"
 
 [connection signal="pressed" from="HomeButton" to="HomeButton" method="_on_pressed"]
 [connection signal="send_button_data" from="HomeButton" to="." method="_on_send_button_data"]
@@ -73,3 +85,5 @@ event = "EnteredFlappyBird"
 [connection signal="send_button_data" from="AppStoreButton" to="." method="_on_send_button_data"]
 [connection signal="pressed" from="FlappyBirdButton" to="FlappyBirdButton" method="_on_pressed"]
 [connection signal="send_button_data" from="FlappyBirdButton" to="." method="_on_send_button_data"]
+[connection signal="pressed" from="SpaceGameButton" to="SpaceGameButton" method="_on_pressed"]
+[connection signal="send_button_data" from="SpaceGameButton" to="." method="_on_send_button_data"]

@@ -4,7 +4,7 @@ signal restart
 
 @export var obstacle : PackedScene
 @onready var player : Node2D = $PlayerBird
-@onready var game_over_screen : PackedScene = preload("res://MiniGames/FlappyBird/game_over.tscn")
+@onready var game_over_screen : PackedScene = preload("res://MiniGames/game_over.tscn")
 
 @export var spacing : float = 350  
 var next : float
@@ -61,7 +61,6 @@ func _on_game_over_body_entered(body: Node2D) -> void:
 			EventTracker.scores["FlappyBird"] = score
 		
 		# show game over screen
-		
 		var node : Control = game_over_screen.instantiate()
 		add_child(node)
 		node.position = $Camera2D.position # for some reason, this flips the text?

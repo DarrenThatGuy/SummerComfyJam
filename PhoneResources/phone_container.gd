@@ -20,4 +20,8 @@ func _on_change_phone_scene(scene_change, event):
 		scene.position = Vector2(-123, -53)
 		get_child(0).queue_free()
 		add_child(scene)
+		
+		# if game container, choose game based on event
+		if scene_change == "res://MiniGames/game_container.tscn":
+			scene.setup(event)
 	check_events.emit(event, scene_change)
