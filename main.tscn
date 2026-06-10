@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cxgbhfcop3rw8"]
 
-[ext_resource type="Script" uid="uid://dxkxc7j8mftsl" path="res://phone_container.gd" id="1_0xm2m"]
-[ext_resource type="Script" uid="uid://cpdga684yprnb" path="res://event_handler.gd" id="1_h2yge"]
-[ext_resource type="PackedScene" uid="uid://cjfwcpwlke76s" path="res://main_screen.tscn" id="1_ig7tw"]
-[ext_resource type="Resource" uid="uid://clns3kscyxtqw" path="res://GameDialogue.dialogue" id="2_1bvp3"]
+[ext_resource type="Script" uid="uid://dxkxc7j8mftsl" path="res://PhoneResources/phone_container.gd" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://cpdga684yprnb" path="res://PhoneResources/event_handler.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://cjfwcpwlke76s" path="res://Scenes/main_screen.tscn" id="1_ig7tw"]
+[ext_resource type="Resource" uid="uid://clns3kscyxtqw" path="res://dialogue/gameDialogue/GameDialogue.dialogue" id="2_1bvp3"]
 
 [node name="Main" type="Node2D" unique_id=9885645]
 

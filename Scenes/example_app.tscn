@@ -1,22 +1,22 @@
 [gd_scene format=3 uid="uid://doan6lgts2ceb"]
 
-[ext_resource type="Script" uid="uid://cov0rxnsont18" path="res://phone.gd" id="1_pfq2b"]
-[ext_resource type="Script" uid="uid://8daijt5acces" path="res://button.gd" id="2_xjp2a"]
+[ext_resource type="Script" uid="uid://cov0rxnsont18" path="res://PhoneResources/phone.gd" id="1_geah5"]
+[ext_resource type="Script" uid="uid://8daijt5acces" path="res://PhoneResources/button.gd" id="2_3k5qf"]
 
 [sub_resource type="Theme" id="Theme_pfq2b"]
 
 [node name="ExampleApp" type="Polygon2D" unique_id=1481380087]
 scale = Vector2(1.58, 1.6439791)
 polygon = PackedVector2Array(367, 35, 367, 417, 566, 417, 565.60046, 34.911854)
-script = ExtResource("1_pfq2b")
+script = ExtResource("1_geah5")
 
 [node name="HomeButton" type="Button" parent="." unique_id=2019367854]
 offset_left = 455.6962
 offset_top = 399.03186
 offset_right = 469.6962
 offset_bottom = 412.03186
-script = ExtResource("2_xjp2a")
-scene_path = "res://main_screen.tscn"
+script = ExtResource("2_3k5qf")
+scene_path = "res://Scenes/main_screen.tscn"
 event = "EnteredHomeScreen"
 
 [node name="UnlockButton" type="Button" parent="." unique_id=639367038]
@@ -25,7 +25,7 @@ offset_top = 199.51591
 offset_right = 541.77216
 offset_bottom = 243.31209
 text = "Unlock App"
-script = ExtResource("2_xjp2a")
+script = ExtResource("2_3k5qf")
 event = "UnlockExampleLockedApp"
 
 [node name="Label" type="Label" parent="." unique_id=957921937]

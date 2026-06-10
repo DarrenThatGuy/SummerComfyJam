@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cjfwcpwlke76s"]
 
-[ext_resource type="Script" uid="uid://jacf2g6ii1im" path="res://MainScreen.gd" id="1_w0p2i"]
-[ext_resource type="Script" uid="uid://8daijt5acces" path="res://button.gd" id="2_7a4el"]
+[ext_resource type="Script" uid="uid://jacf2g6ii1im" path="res://PhoneResources/MainScreen.gd" id="1_w0p2i"]
+[ext_resource type="Script" uid="uid://8daijt5acces" path="res://PhoneResources/button.gd" id="2_7a4el"]
 
 [node name="MainScreen" type="Polygon2D" unique_id=372573881]
 scale = Vector2(1.58, 1.6439791)
@@ -14,7 +14,7 @@ offset_top = 399.64017
 offset_right = 476.02533
 offset_bottom = 412.64017
 script = ExtResource("2_7a4el")
-scene_path = "res://main_screen.tscn"
+scene_path = "res://Scenes/main_screen.tscn"
 event = "EnteredHomeScreen"
 
 [node name="ExampleAppButton" type="Button" parent="." unique_id=2003492278]
@@ -25,7 +25,7 @@ offset_bottom = 69.34394
 theme_override_font_sizes/font_size = 3
 text = "unlocked"
 script = ExtResource("2_7a4el")
-scene_path = "res://example_app.tscn"
+scene_path = "res://Scenes/example_app.tscn"
 event = "EnteredExampleApp"
 
 [node name="LockedAppButton" type="Button" parent="." unique_id=470468188]
@@ -37,13 +37,25 @@ theme_override_font_sizes/font_size = 4
 disabled = true
 text = "locked"
 script = ExtResource("2_7a4el")
-scene_path = "res://locked_app.tscn"
+scene_path = "res://Scenes/locked_app.tscn"
+event = "LockedExampleApp"
+
+[node name="AppStoreButton" type="Button" parent="." unique_id=1458835353]
+offset_left = 435.44302
+offset_top = 48.662422
+offset_right = 458.22784
+offset_bottom = 69.34394
+theme_override_font_sizes/font_size = 3
+text = "appstore"
+script = ExtResource("2_7a4el")
+scene_path = "res://Scenes/app_store.tscn"
 event = "LockedExampleApp"
 
 [node name="FlappyBirdButton" type="Button" parent="." unique_id=273374972]
-offset_left = 436.07593
-offset_top = 48.662422
-offset_right = 458.86075
+visible = false
+offset_left = 460.7595
+offset_top = 48.66242
+offset_right = 483.54428
 offset_bottom = 69.34395
 theme_override_font_sizes/font_size = 4
 text = "flappy"
@@ -57,5 +69,7 @@ event = "EnteredFlappyBird"
 [connection signal="send_button_data" from="ExampleAppButton" to="." method="_on_send_button_data"]
 [connection signal="pressed" from="LockedAppButton" to="LockedAppButton" method="_on_pressed"]
 [connection signal="send_button_data" from="LockedAppButton" to="." method="_on_send_button_data"]
+[connection signal="pressed" from="AppStoreButton" to="AppStoreButton" method="_on_pressed"]
+[connection signal="send_button_data" from="AppStoreButton" to="." method="_on_send_button_data"]
 [connection signal="pressed" from="FlappyBirdButton" to="FlappyBirdButton" method="_on_pressed"]
 [connection signal="send_button_data" from="FlappyBirdButton" to="." method="_on_send_button_data"]
