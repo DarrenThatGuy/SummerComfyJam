@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://gt3661utuhw7"]
+
+[ext_resource type="Script" uid="uid://wokt1dar02kt" path="res://MiniGames/Asteroids/player_ship.gd" id="1_3hbil"]
+[ext_resource type="Texture2D" uid="uid://vn0yxtyr7ohj" path="res://icon.svg" id="1_23iit"]
+[ext_resource type="PackedScene" uid="uid://bmc332t1n0m4l" path="res://MiniGames/Asteroids/projectile.tscn" id="2_hjxde"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3hbil"]
+size = Vector2(50, 50)
+
+[node name="PlayerShip" type="RigidBody2D" unique_id=1972078911]
+collision_mask = 2
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
+linear_damp = 2.0
+angular_damp = 3.0
+script = ExtResource("1_3hbil")
+projectile = ExtResource("2_hjxde")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1089438200]
+rotation = 1.5707964
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_23iit")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1503157089]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_3hbil")
+
+[node name="BulletLoc" type="Marker2D" parent="." unique_id=1101945719]
+position = Vector2(50, 0)
+
+[node name="Invincible" type="Timer" parent="." unique_id=692385376]
+wait_time = 0.25
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
