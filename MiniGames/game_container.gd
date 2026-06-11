@@ -13,6 +13,8 @@ func setup(event : String) -> void:
 		game = load("res://MiniGames/FlappyBird/flappy_bird.tscn")
 	elif event == "EnteredSpaceGame":
 		game = load("res://MiniGames/Asteroids/asteroids_game.tscn")
+	elif event == "EnteredBreakout":
+		game = load("res://MiniGames/Breakout/breakout.tscn")
 		
 	var node : Node2D = game.instantiate()
 	viewport.add_child(node)

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cenjax34ad8xq"]
+
+[ext_resource type="Script" uid="uid://dqnd6wwp0isqx" path="res://MiniGames/Breakout/ball.gd" id="1_7p358"]
+
+[sub_resource type="Gradient" id="Gradient_rd686"]
+colors = PackedColorArray(0, 0.39215687, 1, 1, 0, 0.39215687, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7p358"]
+gradient = SubResource("Gradient_rd686")
+width = 16
+height = 16
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rd686"]
+size = Vector2(16, 16)
+
+[node name="Ball" type="Area2D" unique_id=1183818037]
+script = ExtResource("1_7p358")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2115030100]
+texture = SubResource("GradientTexture2D_7p358")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1364870962]
+shape = SubResource("RectangleShape2D_rd686")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
