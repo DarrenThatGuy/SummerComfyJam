@@ -1,5 +1,6 @@
 class_name MainScreen extends Phone
 
+@export var AppArray : Array
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
