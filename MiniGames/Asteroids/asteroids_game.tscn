@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://chskin6vptwqf"]
+
+[ext_resource type="Script" uid="uid://b7wx47k32ykqg" path="res://MiniGames/Asteroids/asteroids_game.gd" id="1_ek38m"]
+[ext_resource type="PackedScene" uid="uid://gt3661utuhw7" path="res://MiniGames/Asteroids/player_ship.tscn" id="2_flsbf"]
+
+[sub_resource type="Gradient" id="Gradient_hhpf8"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vt5gd"]
+gradient = SubResource("Gradient_hhpf8")
+width = 4
+height = 4
+
+[node name="AsteroidsGame" type="Node2D" unique_id=1641855388]
+script = ExtResource("1_ek38m")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1022428053]
+z_index = -5
+position = Vector2(576, 324)
+scale = Vector2(288, 162)
+texture = SubResource("GradientTexture2D_vt5gd")
+metadata/_edit_lock_ = true
+
+[node name="PlayerShip" parent="." unique_id=1856041943 instance=ExtResource("2_flsbf")]
+position = Vector2(170, 200)
+linear_damp = 1.0
+angular_damp = 1.5
+
+[node name="Asteroids" type="Node2D" parent="." unique_id=403069367]
