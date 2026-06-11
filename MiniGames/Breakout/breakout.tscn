@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://dqmt6fv2v8smj"]
+
+[ext_resource type="Script" uid="uid://cks8ieaemm2xc" path="res://MiniGames/Breakout/breakout.gd" id="1_d423k"]
+[ext_resource type="PackedScene" uid="uid://b6htwb8jg37rr" path="res://MiniGames/Breakout/paddle.tscn" id="1_oxwke"]
+[ext_resource type="PackedScene" uid="uid://cgomn0lrp2w2v" path="res://MiniGames/Breakout/brick.tscn" id="2_o5w3b"]
+[ext_resource type="Script" uid="uid://cobrm82g53noa" path="res://MiniGames/Breakout/bounds.gd" id="3_e0d14"]
+
+[sub_resource type="Gradient" id="Gradient_oxwke"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.9427711)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d423k"]
+gradient = SubResource("Gradient_oxwke")
+fill = 2
+fill_from = Vector2(0.5, 0.525)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ofjw"]
+size = Vector2(1152, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oxwke"]
+size = Vector2(648, 23.000015)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0d14"]
+size = Vector2(1153, 20)
+
+[node name="Breakout" type="Node2D" unique_id=2036356694]
+script = ExtResource("1_d423k")
+brick = ExtResource("2_o5w3b")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1438990300]
+z_index = -5
+position = Vector2(576, 324)
+scale = Vector2(18, 10.125)
+texture = SubResource("GradientTexture2D_d423k")
+metadata/_edit_lock_ = true
+
+[node name="Ceiling" type="StaticBody2D" parent="." unique_id=1602188271]
+script = ExtResource("3_e0d14")
+type = "Ceiling"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling" unique_id=449697021]
+position = Vector2(576, 11)
+shape = SubResource("RectangleShape2D_1ofjw")
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=774910613]
+script = ExtResource("3_e0d14")
+type = "Wall"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=1574248903]
+position = Vector2(11.500008, 324)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_oxwke")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls" unique_id=1581139811]
+position = Vector2(1141, 324)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_oxwke")
+
+[node name="Paddle" parent="." unique_id=458502787 instance=ExtResource("1_oxwke")]
+position = Vector2(576, 600)
+
+[node name="Bricks" type="Node2D" parent="." unique_id=1376740666]
+position = Vector2(66, 100)
+
+[node name="GameOver" type="Area2D" parent="." unique_id=2087547745]
+position = Vector2(576, 658)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameOver" unique_id=1354182138]
+shape = SubResource("RectangleShape2D_e0d14")

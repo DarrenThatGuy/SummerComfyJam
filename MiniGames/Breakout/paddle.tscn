@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://b6htwb8jg37rr"]
+
+[ext_resource type="Script" uid="uid://dj1spnkjw2wa7" path="res://MiniGames/Breakout/paddle.gd" id="1_amhnx"]
+[ext_resource type="PackedScene" uid="uid://cenjax34ad8xq" path="res://MiniGames/Breakout/ball.tscn" id="2_a5bw2"]
+
+[sub_resource type="Gradient" id="Gradient_e31lx"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_amhnx"]
+gradient = SubResource("Gradient_e31lx")
+height = 16
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5bw2"]
+size = Vector2(64, 16)
+
+[node name="Paddle" type="CharacterBody2D" unique_id=458502787]
+script = ExtResource("1_amhnx")
+ball_scene = ExtResource("2_a5bw2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1762110031]
+modulate = Color(0, 0.39215687, 1, 1)
+texture = SubResource("GradientTexture2D_amhnx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=935450793]
+shape = SubResource("RectangleShape2D_a5bw2")
+
+[node name="BallPos" type="Marker2D" parent="." unique_id=282317654]
+position = Vector2(0, -19)
