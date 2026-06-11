@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" uid="uid://jacf2g6ii1im" path="res://PhoneResources/MainScreen.gd" id="1_w0p2i"]
 [ext_resource type="Script" uid="uid://8daijt5acces" path="res://PhoneResources/button.gd" id="2_7a4el"]
+[ext_resource type="Script" uid="uid://dwqb17a7gjeg0" path="res://Scenes/label.gd" id="3_wi85j"]
 
 [node name="MainScreen" type="Polygon2D" unique_id=372573881]
+position = Vector2(-80, -64)
 scale = Vector2(1.58, 1.6439791)
 polygon = PackedVector2Array(367, 35, 367, 417, 566, 417, 565.60046, 34.911854)
 script = ExtResource("1_w0p2i")
@@ -17,59 +19,161 @@ script = ExtResource("2_7a4el")
 scene_path = "res://Scenes/main_screen.tscn"
 event = "EnteredHomeScreen"
 
-[node name="ExampleAppButton" type="Button" parent="." unique_id=2003492278]
-offset_left = 384.81012
-offset_top = 48.662422
-offset_right = 407.59494
-offset_bottom = 69.34394
-theme_override_font_sizes/font_size = 3
-text = "unlocked"
+[node name="WeatherApp" type="Button" parent="." unique_id=1075792740]
+offset_left = 394.93668
+offset_top = 122.26434
+offset_right = 425.31644
+offset_bottom = 151.46178
+theme_override_font_sizes/font_size = 5
+text = "Weather"
 script = ExtResource("2_7a4el")
-scene_path = "res://Scenes/example_app.tscn"
-event = "EnteredExampleApp"
+event = "EnteredWeatherApp"
 
-[node name="LockedAppButton" type="Button" parent="." unique_id=470468188]
-offset_left = 410.1266
-offset_top = 48.662422
-offset_right = 432.9114
-offset_bottom = 69.34394
-theme_override_font_sizes/font_size = 4
-disabled = true
-text = "locked"
+[node name="VideoApp" type="Button" parent="." unique_id=293941926]
+offset_left = 430.37973
+offset_top = 121.65606
+offset_right = 460.75952
+offset_bottom = 150.85349
+theme_override_font_sizes/font_size = 5
+text = "Video"
 script = ExtResource("2_7a4el")
-scene_path = "res://Scenes/locked_app.tscn"
-event = "LockedExampleApp"
+event = "EnteredVideoApp"
 
-[node name="AppStoreButton" type="Button" parent="." unique_id=1458835353]
-offset_left = 435.44302
-offset_top = 48.662422
-offset_right = 458.22784
-offset_bottom = 69.34394
-theme_override_font_sizes/font_size = 3
-text = "appstore"
+[node name="CameraApp" type="Button" parent="." unique_id=426918946]
+offset_left = 465.82278
+offset_top = 121.65606
+offset_right = 496.2025
+offset_bottom = 150.85349
+theme_override_font_sizes/font_size = 5
+text = "Camera"
 script = ExtResource("2_7a4el")
-scene_path = "res://Scenes/app_store.tscn"
-event = "LockedExampleApp"
+event = "EnteredCameraApp"
 
-[node name="FlappyBirdButton" type="Button" parent="." unique_id=273374972]
-visible = false
-offset_left = 460.7595
-offset_top = 48.66242
-offset_right = 483.54428
-offset_bottom = 69.34395
-theme_override_font_sizes/font_size = 4
-text = "flappy"
+[node name="GalleryApp" type="Button" parent="." unique_id=2048977336]
+offset_left = 501.2658
+offset_top = 121.65605
+offset_right = 531.64557
+offset_bottom = 150.85349
+theme_override_font_sizes/font_size = 5
+text = "Gellery"
+script = ExtResource("2_7a4el")
+event = "EnteredGalleryApp"
+
+[node name="FlappyApp" type="Button" parent="." unique_id=1916497574]
+offset_left = 394.9367
+offset_top = 170.31847
+offset_right = 425.31644
+offset_bottom = 199.51593
+theme_override_font_sizes/font_size = 5
+text = "Flappy"
 script = ExtResource("2_7a4el")
 scene_path = "res://MiniGames/game_container.tscn"
 event = "EnteredFlappyBird"
 
+[node name="AsteroidApp" type="Button" parent="." unique_id=1035324187]
+offset_left = 430.37973
+offset_top = 170.31847
+offset_right = 460.7595
+offset_bottom = 199.51593
+theme_override_font_sizes/font_size = 4
+text = "Asteroid"
+script = ExtResource("2_7a4el")
+event = "EnteredAsteroidApp"
+
+[node name="PongApp" type="Button" parent="." unique_id=686508807]
+offset_left = 465.82275
+offset_top = 170.31847
+offset_right = 494.93668
+offset_bottom = 199.51593
+theme_override_font_sizes/font_size = 4
+text = "Pong"
+script = ExtResource("2_7a4el")
+event = "EnteredPongApp"
+
+[node name="BreakoutApp" type="Button" parent="." unique_id=2094799518]
+offset_left = 501.2658
+offset_top = 170.31847
+offset_right = 531.64557
+offset_bottom = 199.51593
+theme_override_font_sizes/font_size = 4
+text = "Breakout"
+script = ExtResource("2_7a4el")
+event = "EnteredBreakoutApp"
+
+[node name="StorefrontApp" type="Button" parent="." unique_id=1456336276]
+offset_left = 394.9367
+offset_top = 218.98088
+offset_right = 425.31644
+offset_bottom = 248.17833
+theme_override_font_sizes/font_size = 5
+text = "Amazon"
+script = ExtResource("2_7a4el")
+event = "EnteredStorefrontApp"
+
+[node name="FoodOrderApp" type="Button" parent="." unique_id=1711482072]
+offset_left = 430.37973
+offset_top = 218.98088
+offset_right = 460.7595
+offset_bottom = 248.17833
+theme_override_font_sizes/font_size = 4
+text = "Instacart"
+script = ExtResource("2_7a4el")
+event = "EnteredFoodApp"
+
+[node name="GachaApp" type="Button" parent="." unique_id=662030929]
+offset_left = 465.82275
+offset_top = 218.9809
+offset_right = 496.20248
+offset_bottom = 248.17834
+theme_override_font_sizes/font_size = 4
+text = "Gacha"
+script = ExtResource("2_7a4el")
+event = "EnteredGachaApp"
+
+[node name="SecretApp" type="Button" parent="." unique_id=1821833758]
+offset_left = 501.2658
+offset_top = 218.98088
+offset_right = 531.64557
+offset_bottom = 248.17831
+theme_override_font_sizes/font_size = 4
+text = "Secret"
+script = ExtResource("2_7a4el")
+event = "EnteredSecretApp"
+
+[node name="Label" type="Label" parent="." unique_id=1987961885]
+offset_left = 399.99997
+offset_top = 48.662422
+offset_right = 521.519
+offset_bottom = 115.66242
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "00:00"
+horizontal_alignment = 1
+script = ExtResource("3_wi85j")
+
 [connection signal="pressed" from="HomeButton" to="HomeButton" method="_on_pressed"]
 [connection signal="send_button_data" from="HomeButton" to="." method="_on_send_button_data"]
-[connection signal="pressed" from="ExampleAppButton" to="ExampleAppButton" method="_on_pressed"]
-[connection signal="send_button_data" from="ExampleAppButton" to="." method="_on_send_button_data"]
-[connection signal="pressed" from="LockedAppButton" to="LockedAppButton" method="_on_pressed"]
-[connection signal="send_button_data" from="LockedAppButton" to="." method="_on_send_button_data"]
-[connection signal="pressed" from="AppStoreButton" to="AppStoreButton" method="_on_pressed"]
-[connection signal="send_button_data" from="AppStoreButton" to="." method="_on_send_button_data"]
-[connection signal="pressed" from="FlappyBirdButton" to="FlappyBirdButton" method="_on_pressed"]
-[connection signal="send_button_data" from="FlappyBirdButton" to="." method="_on_send_button_data"]
+[connection signal="pressed" from="WeatherApp" to="WeatherApp" method="_on_pressed"]
+[connection signal="send_button_data" from="WeatherApp" to="." method="_on_send_button_data"]
+[connection signal="pressed" from="VideoApp" to="VideoApp" method="_on_pressed"]
+[connection signal="send_button_data" from="VideoApp" to="." method="_on_send_button_data"]
+[connection signal="pressed" from="CameraApp" to="CameraApp" method="_on_pressed"]
+[connection signal="send_button_data" from="CameraApp" to="." method="_on_send_button_data"]
+[connection signal="pressed" from="GalleryApp" to="GalleryApp" method="_on_pressed"]
+[connection signal="send_button_data" from="GalleryApp" to="." method="_on_send_button_data"]
+[connection signal="pressed" from="FlappyApp" to="FlappyApp" method="_on_pressed"]
+[connection signal="send_button_data" from="FlappyApp" to="." method="_on_send_button_data"]
+[connection signal="pressed" from="AsteroidApp" to="AsteroidApp" method="_on_pressed"]
+[connection signal="send_button_data" from="AsteroidApp" to="." method="_on_send_button_data"]
+[connection signal="pressed" from="PongApp" to="PongApp" method="_on_pressed"]
+[connection signal="send_button_data" from="PongApp" to="." method="_on_send_button_data"]
+[connection signal="pressed" from="BreakoutApp" to="BreakoutApp" method="_on_pressed"]
+[connection signal="send_button_data" from="BreakoutApp" to="." method="_on_send_button_data"]
+[connection signal="pressed" from="StorefrontApp" to="StorefrontApp" method="_on_pressed"]
+[connection signal="send_button_data" from="StorefrontApp" to="." method="_on_send_button_data"]
+[connection signal="pressed" from="FoodOrderApp" to="FoodOrderApp" method="_on_pressed"]
+[connection signal="send_button_data" from="FoodOrderApp" to="." method="_on_send_button_data"]
+[connection signal="pressed" from="GachaApp" to="GachaApp" method="_on_pressed"]
+[connection signal="send_button_data" from="GachaApp" to="." method="_on_send_button_data"]
+[connection signal="pressed" from="SecretApp" to="SecretApp" method="_on_pressed"]
+[connection signal="send_button_data" from="SecretApp" to="." method="_on_send_button_data"]
