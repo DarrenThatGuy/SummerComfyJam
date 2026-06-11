@@ -78,7 +78,8 @@ offset_bottom = 199.51593
 theme_override_font_sizes/font_size = 4
 text = "Asteroid"
 script = ExtResource("2_7a4el")
-event = "EnteredAsteroidApp"
+scene_path = "res://MiniGames/game_container.tscn"
+event = "EnteredSpaceGame"
 
 [node name="PongApp" type="Button" parent="." unique_id=686508807]
 offset_left = 465.82275
@@ -98,7 +99,8 @@ offset_bottom = 199.51593
 theme_override_font_sizes/font_size = 4
 text = "Breakout"
 script = ExtResource("2_7a4el")
-event = "EnteredBreakoutApp"
+scene_path = "res://MiniGames/game_container.tscn"
+event = "EnteredBreakout"
 
 [node name="StorefrontApp" type="Button" parent="." unique_id=1456336276]
 offset_left = 394.9367
