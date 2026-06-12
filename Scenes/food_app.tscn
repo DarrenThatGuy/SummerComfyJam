@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://bdttta8hy70di"]
+
+[ext_resource type="Script" uid="uid://cov0rxnsont18" path="res://PhoneResources/phone.gd" id="1_jpee5"]
+[ext_resource type="Script" uid="uid://8daijt5acces" path="res://PhoneResources/button.gd" id="2_hi2mt"]
+[ext_resource type="Texture2D" uid="uid://vn0yxtyr7ohj" path="res://icon.svg" id="3_hi2mt"]
+
+[sub_resource type="Theme" id="Theme_pfq2b"]
+
+[node name="ExampleApp" type="Polygon2D" unique_id=1481380087]
+scale = Vector2(1.58, 1.6439791)
+polygon = PackedVector2Array(367, 35, 367, 417, 566, 417, 565.60046, 34.911854)
+script = ExtResource("1_jpee5")
+
+[node name="HomeButton" type="Button" parent="." unique_id=2019367854]
+offset_left = 455.6962
+offset_top = 399.03186
+offset_right = 469.6962
+offset_bottom = 412.03186
+script = ExtResource("2_hi2mt")
+scene_path = "res://Scenes/main_screen.tscn"
+event = "EnteredHomeScreen"
+
+[node name="UnlockButton" type="Button" parent="." unique_id=639367038]
+offset_left = 389.8734
+offset_top = 335.77072
+offset_right = 546.83545
+offset_bottom = 379.5669
+text = "Order Sandwich!"
+script = ExtResource("2_hi2mt")
+event = "UnlockExampleLockedApp"
+
+[node name="Label" type="Label" parent="." unique_id=957921937]
+offset_left = 389.8734
+offset_top = 43.796177
+offset_right = 547.8734
+offset_bottom = 92.79617
+theme = SubResource("Theme_pfq2b")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Order Food Now!
+Jim's Sandwich Shop"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=1298207488]
+offset_left = 389.8734
+offset_top = 223.84714
+offset_right = 547.8734
+offset_bottom = 272.84714
+theme = SubResource("Theme_pfq2b")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Only $10.99!"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="." unique_id=919503910]
+offset_left = 389.8734
+offset_top = 248.17834
+offset_right = 547.8734
+offset_bottom = 297.17834
+theme = SubResource("Theme_pfq2b")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 7
+text = "+$5.99 Delivery Fee
++$7.99 Transit Fee
++$3.99 Holding Charge
++$43.99 Extra Fees"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=600594131]
+position = Vector2(469.62024, 160.58598)
+texture = ExtResource("3_hi2mt")
+
+[connection signal="pressed" from="HomeButton" to="HomeButton" method="_on_pressed"]
+[connection signal="send_button_data" from="HomeButton" to="." method="_on_send_button_data"]
+[connection signal="pressed" from="UnlockButton" to="UnlockButton" method="_on_pressed"]
+[connection signal="send_button_data" from="UnlockButton" to="." method="_on_send_button_data"]
