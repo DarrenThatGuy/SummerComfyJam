@@ -26,7 +26,6 @@ func _process(delta : float) -> void:
 			next += spacing
 	else:
 		if Input.is_action_just_pressed("confirm"):
-			print("Made it here")
 			emit_signal("restart")
 
 func add_obstacle(posx : float) -> void:
