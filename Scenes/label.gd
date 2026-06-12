@@ -9,4 +9,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	text = str(current_time['hour']) + ' : ' + str(current_time['minute'])
+	if current_time.hour > 12:
+		text = str(
+			"%02d:%02d" % [current_time.hour - 12, current_time.minute]
+		)
+	else:
+		text = str(
+			"%02d:%02d" % [current_time.hour, current_time.minute]
+		)
