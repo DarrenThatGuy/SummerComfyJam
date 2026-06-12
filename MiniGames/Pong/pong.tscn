@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bnuy6tgpkjvs"]
+
+[ext_resource type="PackedScene" uid="uid://c5fu5q3n1yfhk" path="res://MiniGames/Pong/paddle.tscn" id="1_6v2wx"]
+[ext_resource type="Script" uid="uid://dsff4adhlrg4m" path="res://MiniGames/Pong/pong.gd" id="1_ota8k"]
+[ext_resource type="PackedScene" uid="uid://cxjisdrrs7s47" path="res://MiniGames/Pong/ball.tscn" id="2_1ka2i"]
+
+[sub_resource type="Gradient" id="Gradient_o15ih"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.027108435, 0.939759, 0.9698795)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6v2wx"]
+gradient = SubResource("Gradient_o15ih")
+fill_from = Vector2(0.4978261, 1)
+fill_to = Vector2(0.4978261, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ofjw"]
+size = Vector2(1152, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0d14"]
+size = Vector2(20, 648)
+
+[node name="Pong" type="Node2D" unique_id=2036356694]
+script = ExtResource("1_ota8k")
+ball_scene = ExtResource("2_1ka2i")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1438990300]
+z_index = -5
+position = Vector2(576, 324)
+scale = Vector2(18, 10.125)
+texture = SubResource("GradientTexture2D_6v2wx")
+metadata/_edit_lock_ = true
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=1602188271]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=449697021]
+position = Vector2(576, 11)
+shape = SubResource("RectangleShape2D_1ofjw")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=791008010]
+position = Vector2(576, 637)
+shape = SubResource("RectangleShape2D_1ofjw")
+
+[node name="PlayerZone" type="Area2D" parent="." unique_id=2087547745]
+position = Vector2(-10, 325)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerZone" unique_id=1354182138]
+shape = SubResource("RectangleShape2D_e0d14")
+
+[node name="EnemyZone" type="Area2D" parent="." unique_id=1493126353]
+position = Vector2(1162, 324)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyZone" unique_id=169305191]
+shape = SubResource("RectangleShape2D_e0d14")
+
+[node name="Player" parent="." unique_id=458502787 instance=ExtResource("1_6v2wx")]
+position = Vector2(51, 326)
+is_player = true
+
+[node name="Delay" type="Timer" parent="." unique_id=463073947]
+one_shot = true
+
+[node name="Enemy" parent="." unique_id=735010431 instance=ExtResource("1_6v2wx")]
+position = Vector2(1103, 326)
+
+[connection signal="timeout" from="Delay" to="." method="_on_delay_timeout"]

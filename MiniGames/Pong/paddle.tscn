@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c5fu5q3n1yfhk"]
+
+[ext_resource type="Script" uid="uid://br34et814b6wb" path="res://MiniGames/Pong/paddle.gd" id="1_fh15p"]
+
+[sub_resource type="Gradient" id="Gradient_e31lx"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_amhnx"]
+gradient = SubResource("Gradient_e31lx")
+width = 16
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5bw2"]
+size = Vector2(16, 64)
+
+[node name="Paddle" type="CharacterBody2D" unique_id=458502787]
+script = ExtResource("1_fh15p")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1762110031]
+texture = SubResource("GradientTexture2D_amhnx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=935450793]
+shape = SubResource("RectangleShape2D_a5bw2")

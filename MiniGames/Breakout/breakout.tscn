@@ -7,7 +7,7 @@
 
 [sub_resource type="Gradient" id="Gradient_oxwke"]
 interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.9427711)
+offsets = PackedFloat32Array(0, 0.9518072)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_d423k"]
 gradient = SubResource("Gradient_oxwke")
