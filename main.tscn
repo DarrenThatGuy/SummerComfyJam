@@ -12,6 +12,7 @@ script = ExtResource("1_h2yge")
 dialogue_resource = ExtResource("2_1bvp3")
 
 [node name="PhoneContainer" type="Node2D" parent="." unique_id=671539803]
+position = Vector2(-56, 8)
 script = ExtResource("1_0xm2m")
 
 [node name="MainScreen" parent="PhoneContainer" unique_id=628004550 instance=ExtResource("1_ig7tw")]

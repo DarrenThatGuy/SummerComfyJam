@@ -26,6 +26,8 @@ var events = {
 "BuySoil" : 0,
 "BuyWateringCan" : 0,
 "BuyFertilizer" : 0,
+"GhostScannerOn" : 0,
+"TriggerApocEnding" : 0
 }
 var scores = {'FlappyBird': 0, 'SpaceGame': 0, 'Breakout': 0, 'Pong': 0}
 var gacha_inventory = []
