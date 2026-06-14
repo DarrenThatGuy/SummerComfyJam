@@ -1,6 +1,7 @@
 extends Node2D
 
 signal restart
+signal got_secret_score
 
 @export var brick : PackedScene
 @export var columns : int = 16
@@ -44,6 +45,10 @@ func _on_game_over() -> void:
 	# Update Player High Score
 	if EventTracker.scores['Breakout'] < score:
 		EventTracker.scores["Breakout"] = score
+	# Check if Player cleared secret score
+	if score >= EventTracker.secret_score["Breakout"] and EventTracker.aquired_secret_score["Breakout"] == false:
+		EventTracker.aquired_secret_score["Breakout"] = true
+		emit_signal("got_secret_score")
 	
 	# show game over screen
 	var node : Control = game_over_screen.instantiate()

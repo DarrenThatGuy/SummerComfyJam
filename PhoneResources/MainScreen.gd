@@ -4,7 +4,6 @@ class_name MainScreen extends Phone
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(EventTracker.scores["FlappyBird"])
 	if EventTracker.events['DownloadFlappyBird'] > 0:
 		$FlappyBirdButton.visible = true
 	if EventTracker.events['DownloadSpaceGame'] > 0:

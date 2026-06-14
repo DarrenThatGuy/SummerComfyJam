@@ -1,6 +1,7 @@
 extends Node2D
 
 signal restart
+signal got_secret_score
 
 @export var ball_scene : PackedScene
 var ball : Area2D
@@ -38,7 +39,9 @@ func add_score(posx : float):
 		# Update Player High Score
 		if EventTracker.scores['Pong'] < player_score:
 			EventTracker.scores["Pong"] = player_score
-		
+		if player_score >= EventTracker.secret_score["Pong"] and EventTracker.aquired_secret_score["Pong"] == false:
+			EventTracker.aquired_secret_score["Pong"] = true
+			emit_signal("got_secret_score")
 		# show game over or you win screen
 		var node : Control
 		if player_score >= 10:
