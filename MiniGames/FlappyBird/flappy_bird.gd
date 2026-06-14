@@ -1,6 +1,7 @@
 extends Node2D
 
 signal restart
+signal got_secret_score
 
 @export var obstacle : PackedScene
 @onready var player : Node2D = $PlayerBird
@@ -12,6 +13,8 @@ var score : int = 0
 var game_over : bool = false
 
 func _ready() -> void:
+	
+	
 	next = $Obstacles.position.x # start from x position of marker
 	
 	while next < 1500:
@@ -58,6 +61,11 @@ func _on_game_over_body_entered(body: Node2D) -> void:
 		# Update Player High Score
 		if EventTracker.scores['FlappyBird'] < score:
 			EventTracker.scores["FlappyBird"] = score
+		
+		# Check to see if player has achieved secret score
+		if score >= EventTracker.secret_score["FlappyBird"] and EventTracker.aquired_secret_score["FlappyBird"] == false:
+			EventTracker.aquired_secret_score["FlappyBird"] = true
+			emit_signal("got_secret_score")
 		
 		# show game over screen
 		var node : Control = game_over_screen.instantiate()

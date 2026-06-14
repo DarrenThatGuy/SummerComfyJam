@@ -1,16 +1,56 @@
 ~ start
-Welcome to your phone!
+Hello! Welcome to your brand new SMRT Phone 42.
+My name is Zeta, your brand new AI Assistant.
+I have been designed to introduce you to the brand new features of the system, and maximize your enjoyment.
+It's a pleasure to meet you!
+Now, before we begin, I do want to inform you that I have locked some of the system apps.
+This is so we can stay focused on giving you the best introduction possible!
+As a start, let's check your overall health using our internal biometric scanner.
 ...
-Yeah, there's not a lot here...
-Lets try that app right there!
+Hmm... It seems that you are currently feeling...
+Hungry!
+Let's go ahead and order you some food. Go ahead and click on the FoodGrub app and we'll get started! 
 => END
 
-~ ExampleApp
-Jeez, We don't even have a real app huh...
-Wait! There's a locked app!
-Maybe there's Something there!
+~ OpenedFoodApp
+Great Job!
+It seems that Mr. Sandy's Sandy Sandwiches are on sale right now.
+Their "Sandy Dandy Sandwich Meal" is currently only 10.99!
+That's a whole...
+50 Cents off!
+Now, I can't feel hunger, but just looking at this *treat* of a deal would make anyone feel a little peckish.
+Let's go ahead and order it!
 => END
 
-~ LockedExampleApp
-God Dammit...
+~ OrderedFood
+Great! Your food should arrive...
+Soon-ish?
+In any case, now you can relax instead of going out to get the food yourself!
+Let's move on with our visual tour.
+Go ahead and return to the home screen by clicking the "Home" button at the bottom of the screen.
 => END
+
+~ MinigameDirection
+Now, according to your biometric data, you are feeling...
+Bored!
+Let's play some fun games then!
+If you look on over here on the home screen, we have four game apps that I pre-loaded from universal preferences.
+Originally there was an app-store that would have allowed you to pick a game buuuut...
+I figured less choices would make things easier for you.
+Now, go ahead and pick out a game and let's get this party started!
+
+~ MiniGameEnd
+Wow, you got...
+match EventTracker.last_event:
+	when EnteredFlappyBird:
+		{{EventTracker.score['FlappyBird']}} Points!
+		if EventTracker.score['FlappyBird'] == 0:
+			Hmm... Perhaps this game is too difficult for you...
+		elif EventTracker.score['FlappyBird'] >= EventTracker.secret_score['FlappyBird']:
+			{{EventTracker.aquired_secret_score['FlappyBird'] = true}}
+			Wow! That's an amazing score...
+			Hm...?
+			Strange, when you finished the game, it sent me some kind of data structure...
+			Let me translate it really quick.
+			...
+			It says... the 

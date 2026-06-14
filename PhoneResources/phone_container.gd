@@ -3,7 +3,7 @@ extends Node2D
 signal check_events(event, scene)
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	print(EventTracker.secret_code)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -12,6 +12,7 @@ func _process(delta):
 
 
 func _on_change_phone_scene(scene_change, event):
+	print("Scene Change Recieved")
 	if scene_change == '':
 		pass
 	else:
@@ -23,5 +24,13 @@ func _on_change_phone_scene(scene_change, event):
 		
 		# if game container, choose game based on event
 		if scene_change == "res://MiniGames/game_container.tscn":
+			scene.trigger_secret_score.connect(_on_trigger_secret_score)
 			scene.setup(event)
 	check_events.emit(event, scene_change)
+
+func _on_trigger_secret_score():
+	var picked_index = randi_range(0, EventTracker.secret_code_selection.size() - 1)
+	var selected_digit = EventTracker.secret_code_selection[picked_index]
+	EventTracker.code_number = EventTracker.secret_code[selected_digit]
+	EventTracker.code_digit = EventTracker.secret_code.find_key(EventTracker.code_number)
+	EventTracker.secret_code_selection.erase(EventTracker.code_digit)

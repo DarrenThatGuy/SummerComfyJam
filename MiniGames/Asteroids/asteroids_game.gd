@@ -1,6 +1,7 @@
 extends Node2D
 
 signal restart
+signal got_secret_score
 
 @onready var asteroid : PackedScene = preload("res://MiniGames/Asteroids/asteroid.tscn")
 @onready var screensize : Vector2 = get_viewport_rect().size # get viewport size
@@ -48,6 +49,9 @@ func _on_game_over():
 	# Update Player High Score
 	if EventTracker.scores['SpaceGame'] < waves_cleared:
 		EventTracker.scores["SpaceGame"] = waves_cleared
+	if waves_cleared >= EventTracker.secret_score["SpaceGame"] and EventTracker.aquired_secret_score["SpaceGame"] == false:
+		EventTracker.aquired_secret_score["SpaceGame"] = true
+		emit_signal("got_secret_score")
 	
 	# show game over screen
 	var node : Control = game_over_screen.instantiate()
