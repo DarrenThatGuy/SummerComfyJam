@@ -2,6 +2,7 @@ extends Node2D
 
 signal restart
 signal got_secret_score
+signal game_completed(game_name)
 
 @export var ball_scene : PackedScene
 var ball : Area2D
@@ -52,6 +53,7 @@ func add_score(posx : float):
 		add_child(node)
 		
 		game_over = true
+		game_completed.emit("PongCompleted")
 	
 	# otherwise, relaunch ball after delay
 	else:

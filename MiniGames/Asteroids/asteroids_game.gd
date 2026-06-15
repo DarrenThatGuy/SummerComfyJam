@@ -2,6 +2,7 @@ extends Node2D
 
 signal restart
 signal got_secret_score
+signal game_completed(game_name)
 
 @onready var asteroid : PackedScene = preload("res://MiniGames/Asteroids/asteroid.tscn")
 @onready var screensize : Vector2 = get_viewport_rect().size # get viewport size
@@ -57,3 +58,5 @@ func _on_game_over():
 	var node : Control = game_over_screen.instantiate()
 	node.position = $Background.position
 	add_child(node)
+	
+	game_completed.emit("SpaceGameCompleted")

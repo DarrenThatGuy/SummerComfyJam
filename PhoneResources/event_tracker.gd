@@ -27,7 +27,8 @@ var events = {
 "BuyWateringCan" : 0,
 "BuyFertilizer" : 0,
 "GhostScannerOn" : 0,
-"TriggerApocEnding" : 0
+"TriggerApocEnding" : 0,
+"SpaceGameCompleted" : 0,
 }
 var secret_code_selection = ["First", "Second", "Third", "Fourth"]
 var secret_code = {'First' : 0, 'Second' : 0, 'Third' : 0, 'Fourth' : 0}

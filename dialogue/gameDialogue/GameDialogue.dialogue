@@ -38,19 +38,111 @@ If you look on over here on the home screen, we have four game apps that I pre-l
 Originally there was an app-store that would have allowed you to pick a game buuuut...
 I figured less choices would make things easier for you.
 Now, go ahead and pick out a game and let's get this party started!
-
+=> END
 ~ MiniGameEnd
 Wow, you got...
-match EventTracker.last_event:
-	when EnteredFlappyBird:
-		{{EventTracker.score['FlappyBird']}} Points!
-		if EventTracker.score['FlappyBird'] == 0:
+match EventTracker.last_game:
+	when "FlappyBirdCompleted":
+		{{EventTracker.scores['FlappyBird']}} Points!
+		if EventTracker.scores['FlappyBird'] == 0:
 			Hmm... Perhaps this game is too difficult for you...
-		elif EventTracker.score['FlappyBird'] >= EventTracker.secret_score['FlappyBird']:
-			{{EventTracker.aquired_secret_score['FlappyBird'] = true}}
+		elif EventTracker.scores['FlappyBird'] >= EventTracker.secret_score['FlappyBird']:
 			Wow! That's an amazing score...
 			Hm...?
 			Strange, when you finished the game, it sent me some kind of data structure...
 			Let me translate it really quick.
 			...
-			It says... the 
+			It says... the {{EventTracker.code_digit}} digit is {{EventTracker.code_number}}
+			Well... That probably means nothing
+		Let's move on with the tour!
+	when "SpaceGameCompleted":
+		{{EventTracker.scores['SpaceGame']}} Points!
+		if EventTracker.scores['SpaceGame'] == 0:
+			Hmm... Perhaps this game is too difficult for you...
+		elif EventTracker.scores['SpaceGame'] >= EventTracker.secret_score['SpaceGame']:
+			Wow! That's an amazing score...
+			Hm...?
+			Strange, when you finished the game, it sent me some kind of data structure...
+			Let me translate it really quick.
+			...
+			It says... the {{EventTracker.code_digit}} digit is {{EventTracker.code_number}}
+			Well... That probably means nothing
+		Let's move on with the tour!
+	when "BreakoutCompleted":
+		{{EventTracker.scores['Breakout']}} Points!
+		if EventTracker.scores['Breakout'] == 0:
+			Hmm... Perhaps this game is too difficult for you...
+		elif EventTracker.scores['Breakout'] >= EventTracker.secret_score['Breakout']:
+			Wow! That's an amazing score...
+			Hm...?
+			Strange, when you finished the game, it sent me some kind of data structure...
+			Let me translate it really quick.
+			...
+			It says... the {{EventTracker.code_digit}} digit is {{EventTracker.code_number}}
+			Well... That probably means nothing
+		Let's move on with the tour!
+	when "PongCompleted":
+		{{EventTracker.scores['Pong']}} Points!
+		if EventTracker.scores['Pong'] == 0:
+			Hmm... Perhaps this game is too difficult for you...
+		elif EventTracker.scores['Pong'] >= EventTracker.secret_score['Pong']:
+			Wow! That's an amazing score!
+			Hm...?
+			Strange, when you finished the game, it sent me some kind of data structure...
+			Let me translate it really quick.
+			...
+			It says... the {{EventTracker.code_digit}} digit is {{EventTracker.code_number}}
+			Well... That probably means nothing.
+		Let's move on with the tour!
+=> END
+
+~ GachaGameDirection
+Hm? You want to play another game?
+Sure! I have already pre-installed another game for you to try.
+This one combines the thrill of gambling...
+with the luck of gambling!
+Let's check out the app, "Roll for Blobs".
+=> END
+
+~ GachaGameDone
+Great job! You rolled very well.
+Let's hurry back to the home screen and see what else your brand new phone has to offer.
+=> END
+
+~ StorefrontDirection
+Now, based on your biometric data, you appear to be...
+Hm, well this isn't necessarily an emotion, but you really wish to do some gardening.
+While your emotions are valid, I strongly reccomend against going outside...
+When we are having so much fun!
+Instead, let's order a plant from the store. That way, you can have all the fun of a plant without any of the hassle of gardening.
+Head on over to the Glamizon app to get started!
+=> END
+
+~ OrderedPlant
+Great! Your plant should arrive in 6-7 business days.
+Let's return to the home screen.
+=> END
+
+~ VideoStart
+Now, let's continue our tour with my favorite app.
+The Video App!
+Here, I have compiled hundreds of videos to keep you occupied for the forseeable future.
+Let's head there now!
+=> END
+
+~ VideoScreen
+Select "Short Form Videos", please.
+=> END
+
+~ BadEnding
+Isn't this great?
+Entertainment, Food, and all the creature comforts you could ever want.
+And you'd never have to leave your bed.
+You don't need to find things.
+You don't need to explore things.
+You don't even need to think.
+Just let me take care of everything.
+Forever.
+BAD ENDING
+Try to explore the phone and find a way to get a new ending.
+=> END
