@@ -19,4 +19,5 @@ script = ExtResource("1_0xm2m")
 position = Vector2(-123, -53)
 
 [connection signal="check_events" from="PhoneContainer" to="EventHandler" method="_on_phone_container_check_events"]
+[connection signal="trigger_event" from="PhoneContainer" to="EventHandler" method="_on_phone_container_trigger_event"]
 [connection signal="change_phone_scene" from="PhoneContainer/MainScreen" to="PhoneContainer" method="_on_change_phone_scene"]

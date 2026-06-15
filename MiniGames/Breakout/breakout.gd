@@ -2,6 +2,7 @@ extends Node2D
 
 signal restart
 signal got_secret_score
+signal game_completed(game_name)
 
 @export var brick : PackedScene
 @export var columns : int = 16
@@ -42,6 +43,7 @@ func add_score(points : int):
 	score += points
 	
 func _on_game_over() -> void:
+	
 	# Update Player High Score
 	if EventTracker.scores['Breakout'] < score:
 		EventTracker.scores["Breakout"] = score
@@ -56,3 +58,4 @@ func _on_game_over() -> void:
 	add_child(node)
 	
 	game_over = true
+	game_completed.emit("BreakoutCompleted")

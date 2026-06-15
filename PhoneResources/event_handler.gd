@@ -31,3 +31,9 @@ func _on_phone_container_check_events(event, scene):
 			1:
 				#DialogueManager.show_example_dialogue_balloon(load("res://GameDialogue.dialogue"), 'LockedExampleApp')
 				pass
+
+
+func _on_phone_container_trigger_event(event):
+	if event == "SpaceGameCompleted" or event == "FlappyBirdCompleted" or event == "PongCompleted" or event == "BreakoutCompleted":
+		EventTracker.last_game = event
+		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/gameDialogue/GameDialogue.dialogue"), 'MiniGameEnd')

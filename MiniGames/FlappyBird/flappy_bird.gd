@@ -2,6 +2,7 @@ extends Node2D
 
 signal restart
 signal got_secret_score
+signal game_completed(game_name)
 
 @export var obstacle : PackedScene
 @onready var player : Node2D = $PlayerBird
@@ -73,5 +74,5 @@ func _on_game_over_body_entered(body: Node2D) -> void:
 		node.position = $Camera2D.position # for some reason, this flips the text?
 		
 		game_over = true
-		
+		game_completed.emit("FlappyBirdCompleted")
 	

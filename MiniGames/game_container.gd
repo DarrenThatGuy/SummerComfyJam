@@ -2,6 +2,7 @@ extends Control
 
 signal change_phone_scene(scene_change, event)
 signal trigger_secret_score()
+signal game_completed()
 
 @onready var viewport : SubViewport = $SubViewportContainer/SubViewport
 var game_event : String
@@ -29,6 +30,7 @@ func setup(event : String) -> void:
 	viewport.add_child(node)
 	node.restart.connect(_on_restart)
 	node.got_secret_score.connect(_on_got_secret_score)
+	node.game_completed.connect(_on_game_completed)
 	
 func _on_restart() -> void:
 	print("Restart")
@@ -40,3 +42,7 @@ func _on_home_button_pressed() -> void:
 
 func _on_got_secret_score() -> void:
 	trigger_secret_score.emit()
+
+func _on_game_completed(event) -> void:
+	print(event)
+	game_completed.emit(event)

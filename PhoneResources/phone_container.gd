@@ -1,6 +1,7 @@
 extends Node2D
 
 signal check_events(event, scene)
+signal trigger_event(event)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print(EventTracker.secret_code)
@@ -25,6 +26,7 @@ func _on_change_phone_scene(scene_change, event):
 		# if game container, choose game based on event
 		if scene_change == "res://MiniGames/game_container.tscn":
 			scene.trigger_secret_score.connect(_on_trigger_secret_score)
+			scene.game_completed.connect(_on_game_completed)
 			scene.setup(event)
 	check_events.emit(event, scene_change)
 
@@ -34,3 +36,6 @@ func _on_trigger_secret_score():
 	EventTracker.code_number = EventTracker.secret_code[selected_digit]
 	EventTracker.code_digit = EventTracker.secret_code.find_key(EventTracker.code_number)
 	EventTracker.secret_code_selection.erase(EventTracker.code_digit)
+
+func _on_game_completed(event):
+	trigger_event.emit(event)
