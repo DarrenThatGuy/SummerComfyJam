@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dyyqwtdvg1678"]
+
+[ext_resource type="Script" uid="uid://dqvcsxd8rdb01" path="res://Scenes/room_background.gd" id="1_vlehg"]
+
+[sub_resource type="Gradient" id="Gradient_5neta"]
+offsets = PackedFloat32Array(0, 0.018072288, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vlehg"]
+gradient = SubResource("Gradient_5neta")
+width = 1150
+height = 650
+fill = 1
+fill_from = Vector2(0.49130434, 0.51086956)
+
+[sub_resource type="Gradient" id="Gradient_g4xkw"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lt5jp"]
+gradient = SubResource("Gradient_g4xkw")
+width = 1150
+height = 650
+fill = 1
+fill_from = Vector2(0.49130434, 0.51086956)
+
+[node name="RoomBackground" type="Node2D" unique_id=1472395247]
+script = ExtResource("1_vlehg")
+
+[node name="NormalBackground" type="Sprite2D" parent="." unique_id=1021814791]
+z_index = -5
+texture = SubResource("GradientTexture2D_vlehg")
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1142491438]
+position = Vector2(-407, 0)
+
+[node name="GhostBackground" type="Sprite2D" parent="." unique_id=750193857]
+z_index = -6
+texture = SubResource("GradientTexture2D_lt5jp")
+metadata/_edit_lock_ = true
+
+[node name="Ghost1" type="VisibleOnScreenNotifier2D" parent="." unique_id=643778272]
+position = Vector2(-9, 7)
+
+[connection signal="screen_entered" from="Ghost1" to="." method="_on_ghost_1_screen_entered"]
+[connection signal="screen_exited" from="Ghost1" to="." method="_on_ghost_1_screen_exited"]
