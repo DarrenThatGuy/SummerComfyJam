@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cov0rxnsont18" path="res://PhoneResources/phone.gd" id="1_2gepu"]
 [ext_resource type="Script" uid="uid://8daijt5acces" path="res://PhoneResources/button.gd" id="2_kprhf"]
+[ext_resource type="Script" uid="uid://xvt7d6wyspmf" path="res://Scenes/video_manager.gd" id="3_8w2jl"]
+[ext_resource type="Texture2D" uid="uid://vn0yxtyr7ohj" path="res://icon.svg" id="4_n65o7"]
 
 [sub_resource type="Theme" id="Theme_pfq2b"]
 
@@ -9,6 +11,7 @@
 scale = Vector2(1.58, 1.6439791)
 polygon = PackedVector2Array(367, 35, 367, 417, 566, 417, 565.60046, 34.911854)
 script = ExtResource("1_2gepu")
+metadata/_edit_lock_ = true
 
 [node name="HomeButton" type="Button" parent="." unique_id=2019367854]
 offset_left = 455.6962
@@ -19,25 +22,61 @@ script = ExtResource("2_kprhf")
 scene_path = "res://Scenes/main_screen.tscn"
 event = "EnteredHomeScreen"
 
-[node name="UnlockButton" type="Button" parent="." unique_id=639367038]
-offset_left = 384.81012
-offset_top = 199.51591
-offset_right = 541.77216
-offset_bottom = 243.31209
-text = "Unlock App"
+[node name="UpButton" type="Button" parent="." unique_id=639367038]
+offset_left = 450.0
+offset_top = 125.306
+offset_right = 476.0
+offset_bottom = 156.306
+text = " ^ "
+script = ExtResource("2_kprhf")
+event = "UnlockExampleLockedApp"
+
+[node name="DownButton" type="Button" parent="." unique_id=1469813687]
+offset_left = 450.0
+offset_top = 304.748
+offset_right = 477.0
+offset_bottom = 335.748
+text = " V "
 script = ExtResource("2_kprhf")
 event = "UnlockExampleLockedApp"
 
 [node name="Label" type="Label" parent="." unique_id=957921937]
-offset_left = 428.48102
-offset_top = 113.14013
-offset_right = 494.48102
-offset_bottom = 136.14014
+offset_left = 434.81012
+offset_top = 72.38535
+offset_right = 500.81012
+offset_bottom = 95.38536
 theme = SubResource("Theme_pfq2b")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Example"
+text = "Videos!"
+horizontal_alignment = 1
+
+[node name="VideoManager" type="Node2D" parent="." unique_id=624987519]
+script = ExtResource("3_8w2jl")
+
+[node name="Video1" type="Sprite2D" parent="VideoManager" unique_id=1682090461]
+visible = false
+position = Vector2(465.1899, 229.92995)
+scale = Vector2(0.70490474, 0.7252192)
+texture = ExtResource("4_n65o7")
+
+[node name="Video2" type="Sprite2D" parent="VideoManager" unique_id=2001927586]
+visible = false
+position = Vector2(465.82278, 230.53821)
+rotation = 1.5707964
+scale = Vector2(1, 0.99422777)
+texture = ExtResource("4_n65o7")
+
+[node name="Video3" type="Sprite2D" parent="VideoManager" unique_id=1401486161]
+visible = false
+position = Vector2(465.82278, 230.53824)
+rotation = 3.1415927
+texture = ExtResource("4_n65o7")
 
 [connection signal="pressed" from="HomeButton" to="HomeButton" method="_on_pressed"]
 [connection signal="send_button_data" from="HomeButton" to="." method="_on_send_button_data"]
-[connection signal="pressed" from="UnlockButton" to="UnlockButton" method="_on_pressed"]
-[connection signal="send_button_data" from="UnlockButton" to="." method="_on_send_button_data"]
+[connection signal="pressed" from="UpButton" to="UpButton" method="_on_pressed"]
+[connection signal="pressed" from="UpButton" to="VideoManager" method="_on_up_button_pressed"]
+[connection signal="send_button_data" from="UpButton" to="." method="_on_send_button_data"]
+[connection signal="pressed" from="DownButton" to="DownButton" method="_on_pressed"]
+[connection signal="pressed" from="DownButton" to="VideoManager" method="_on_down_button_pressed"]
+[connection signal="send_button_data" from="DownButton" to="." method="_on_send_button_data"]
