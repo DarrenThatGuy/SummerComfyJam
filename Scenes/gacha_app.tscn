@@ -24,7 +24,7 @@ script = ExtResource("2_nff6n")
 scene_path = "res://Scenes/main_screen.tscn"
 event = "EnteredHomeScreen"
 
-[node name="UnlockButton" type="Button" parent="." unique_id=639367038]
+[node name="RollButton" type="Button" parent="." unique_id=639367038]
 offset_left = 384.81012
 offset_top = 194.64967
 offset_right = 541.77216
@@ -61,6 +61,6 @@ autowrap_mode = 3
 
 [connection signal="pressed" from="HomeButton" to="HomeButton" method="_on_pressed"]
 [connection signal="send_button_data" from="HomeButton" to="." method="_on_send_button_data"]
-[connection signal="pressed" from="UnlockButton" to="UnlockButton" method="_on_pressed"]
-[connection signal="send_button_data" from="UnlockButton" to="." method="_on_send_button_data"]
-[connection signal="send_button_data" from="UnlockButton" to="GachaManager" method="_on_send_button_data"]
+[connection signal="pressed" from="RollButton" to="RollButton" method="_on_pressed"]
+[connection signal="send_button_data" from="RollButton" to="." method="_on_send_button_data"]
+[connection signal="send_button_data" from="RollButton" to="GachaManager" method="_on_send_button_data"]

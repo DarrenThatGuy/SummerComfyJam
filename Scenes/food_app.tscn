@@ -20,14 +20,15 @@ script = ExtResource("2_hi2mt")
 scene_path = "res://Scenes/main_screen.tscn"
 event = "EnteredHomeScreen"
 
-[node name="UnlockButton" type="Button" parent="." unique_id=639367038]
+[node name="SandwichButton" type="Button" parent="." unique_id=639367038]
 offset_left = 389.8734
 offset_top = 335.77072
 offset_right = 546.83545
 offset_bottom = 379.5669
 text = "Order Sandwich!"
 script = ExtResource("2_hi2mt")
-event = "UnlockExampleLockedApp"
+scene_path = "res://Scenes/food_app.tscn"
+event = "OrderedFood"
 
 [node name="Label" type="Label" parent="." unique_id=957921937]
 offset_left = 389.8734
@@ -70,5 +71,5 @@ texture = ExtResource("3_hi2mt")
 
 [connection signal="pressed" from="HomeButton" to="HomeButton" method="_on_pressed"]
 [connection signal="send_button_data" from="HomeButton" to="." method="_on_send_button_data"]
-[connection signal="pressed" from="UnlockButton" to="UnlockButton" method="_on_pressed"]
-[connection signal="send_button_data" from="UnlockButton" to="." method="_on_send_button_data"]
+[connection signal="pressed" from="SandwichButton" to="SandwichButton" method="_on_pressed"]
+[connection signal="send_button_data" from="SandwichButton" to="." method="_on_send_button_data"]
