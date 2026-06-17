@@ -140,15 +140,16 @@ script = ExtResource("2_7a4el")
 scene_path = "res://Scenes/gacha_app.tscn"
 event = "EnteredGachaApp"
 
-[node name="SecretApp" type="Button" parent="." unique_id=1821833758]
+[node name="SettingsApp" type="Button" parent="." unique_id=1821833758]
 offset_left = 501.2658
 offset_top = 218.98088
 offset_right = 531.64557
 offset_bottom = 248.17831
 theme_override_font_sizes/font_size = 4
-text = "Secret"
+text = "Settings"
 script = ExtResource("2_7a4el")
-event = "EnteredSecretApp"
+scene_path = "res://Scenes/settings_app.tscn"
+event = "EnteredSettingsApp"
 
 [node name="Label" type="Label" parent="." unique_id=1987961885]
 offset_left = 399.99997
@@ -185,5 +186,5 @@ script = ExtResource("3_wi85j")
 [connection signal="send_button_data" from="FoodOrderApp" to="." method="_on_send_button_data"]
 [connection signal="pressed" from="GachaApp" to="GachaApp" method="_on_pressed"]
 [connection signal="send_button_data" from="GachaApp" to="." method="_on_send_button_data"]
-[connection signal="pressed" from="SecretApp" to="SecretApp" method="_on_pressed"]
-[connection signal="send_button_data" from="SecretApp" to="." method="_on_send_button_data"]
+[connection signal="pressed" from="SettingsApp" to="SettingsApp" method="_on_pressed"]
+[connection signal="send_button_data" from="SettingsApp" to="." method="_on_send_button_data"]
