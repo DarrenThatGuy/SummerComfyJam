@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://cgxs4pxb3ol8t"]
+
+[ext_resource type="Script" uid="uid://cov0rxnsont18" path="res://PhoneResources/phone.gd" id="1_8nr8p"]
+[ext_resource type="Script" uid="uid://8daijt5acces" path="res://PhoneResources/button.gd" id="2_ei72x"]
+[ext_resource type="Script" uid="uid://d08fowr18sc50" path="res://Scenes/enter_code.gd" id="3_ei72x"]
+
+[sub_resource type="Theme" id="Theme_pfq2b"]
+
+[node name="SettingsApp" type="Polygon2D" unique_id=1481380087]
+position = Vector2(0, -56.000008)
+scale = Vector2(1.58, 1.6439791)
+polygon = PackedVector2Array(367, 35, 367, 417, 566, 417, 565.60046, 34.911854)
+script = ExtResource("1_8nr8p")
+
+[node name="HomeButton" type="Button" parent="." unique_id=2019367854]
+offset_left = 455.6962
+offset_top = 399.03186
+offset_right = 469.6962
+offset_bottom = 412.03186
+script = ExtResource("2_ei72x")
+scene_path = "res://Scenes/main_screen.tscn"
+event = "EnteredHomeScreen"
+
+[node name="SecretApp" type="Button" parent="." unique_id=639367038]
+offset_left = 404.43036
+offset_top = 331.51276
+offset_right = 522.15186
+offset_bottom = 370.91403
+text = "AI Settings"
+script = ExtResource("3_ei72x")
+scene_path = "res://Scenes/secret_app.tscn"
+
+[node name="Label" type="Label" parent="." unique_id=957921937]
+offset_left = 425.31647
+offset_top = 68.12739
+offset_right = 509.31647
+offset_bottom = 91.127396
+theme = SubResource("Theme_pfq2b")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=1906792852]
+offset_left = 379.74683
+offset_top = 240.87898
+offset_right = 543.7469
+offset_bottom = 263.87897
+theme = SubResource("Theme_pfq2b")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Passphrase Required:"
+horizontal_alignment = 1
+
+[node name="Code" type="LineEdit" parent="." unique_id=2138420290]
+unique_name_in_owner = true
+offset_left = 431.01266
+offset_top = 277.3758
+offset_right = 499.51266
+offset_bottom = 308.3758
+alignment = 1
+max_length = 4
+
+[connection signal="pressed" from="HomeButton" to="HomeButton" method="_on_pressed"]
+[connection signal="send_button_data" from="HomeButton" to="." method="_on_send_button_data"]
+[connection signal="pressed" from="SecretApp" to="SecretApp" method="_on_pressed"]
+[connection signal="send_button_data" from="SecretApp" to="." method="_on_send_button_data"]

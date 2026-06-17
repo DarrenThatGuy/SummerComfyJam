@@ -18,7 +18,8 @@ var events = {
 "EnteredBreakout" : 0,
 "EnteredStorefrontApp" : 0, 
 "EnteredFoodApp" : 0, 
-"EnteredGachaApp" : 0, 
+"EnteredGachaApp" : 0,
+"EnteredSettingsApp" : 0, 
 "EnteredSecretApp" : 0, 
 "OrderedFood" : 0, 
 "RolledGacha" : 0, 
@@ -30,6 +31,8 @@ var events = {
 "TriggerApocEnding" : 0,
 "SpaceGameCompleted" : 0,
 "FirstGameCompleted" : 0,
+"UninstallAI" : 0,
+"WrongCode" : 0,
 }
 var secret_code_selection = ["First", "Second", "Third", "Fourth"]
 var secret_code = {'First' : 0, 'Second' : 0, 'Third' : 0, 'Fourth' : 0}
