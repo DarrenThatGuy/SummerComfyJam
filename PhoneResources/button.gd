@@ -1,8 +1,9 @@
 class_name AppButton extends Button
 
 @export var scene_path : String
-@export_enum("EnteredHomeScreen", "EnteredFlappyBird", "EnteredSpaceGame", "EnteredPong", "EnteredBreakout", "EnteredWeatherApp", "EnteredVideoApp", "EnteredCameraApp", "EnteredGalleryApp", "EnteredStorefrontApp", "EnteredFoodApp", "EnteredGachaApp", "EnteredSecretApp", "OrderedFood", "RolledGacha", "BuyPlant", "BuySoil", "BuyWateringCan", "BuyFertilizer", "GhostScannerOn", "TriggerApocEnding") var event : String
+@export_enum("EnteredHomeScreen", "EnteredFlappyBird", "EnteredSpaceGame", "EnteredPong", "EnteredBreakout", "EnteredWeatherApp", "EnteredVideoApp", "EnteredCameraApp", "EnteredGalleryApp", "EnteredStorefrontApp", "EnteredFoodApp", "EnteredGachaApp", "EnteredSecretApp", "OrderedFood", "RolledGacha", "BuyPlant", "BuySoil", "BuyWateringCan", "BuyFertilizer", "GhostScannerOn", "TriggerApocEnding", "OrderedFood") var event : String
 signal send_button_data(scene, event)
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

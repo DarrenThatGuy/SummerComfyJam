@@ -14,6 +14,7 @@ func _process(delta):
 
 func _on_change_phone_scene(scene_change, event):
 	print("Scene Change Recieved")
+	check_events.emit(event, scene_change)
 	if scene_change == '':
 		pass
 	else:
@@ -28,7 +29,7 @@ func _on_change_phone_scene(scene_change, event):
 			scene.trigger_secret_score.connect(_on_trigger_secret_score)
 			scene.game_completed.connect(_on_game_completed)
 			scene.setup(event)
-	check_events.emit(event, scene_change)
+	
 
 func _on_trigger_secret_score():
 	var picked_index = randi_range(0, EventTracker.secret_code_selection.size() - 1)

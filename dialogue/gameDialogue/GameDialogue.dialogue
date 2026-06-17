@@ -93,7 +93,9 @@ match EventTracker.last_game:
 			...
 			It says... the {{EventTracker.code_digit}} digit is {{EventTracker.code_number}}
 			Well... That probably means nothing.
-		Let's move on with the tour!
+if EventTracker.events["FirstGameCompleted"] == 0:
+	Let's move on with the tour!
+	{{ EventTracker.events["FirstGameCompleted"] += 1}}
 => END
 
 ~ GachaGameDirection
