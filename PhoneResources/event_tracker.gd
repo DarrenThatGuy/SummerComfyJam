@@ -46,6 +46,7 @@ var rng
 
 var code_digit
 var code_number
+var pause : bool = false
 
 func _ready():
 	rng = RandomNumberGenerator.new()

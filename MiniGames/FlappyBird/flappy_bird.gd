@@ -14,8 +14,6 @@ var score : int = 0
 var game_over : bool = false
 
 func _ready() -> void:
-	
-	
 	next = $Obstacles.position.x # start from x position of marker
 	
 	while next < 1500:
@@ -28,7 +26,7 @@ func _process(delta : float) -> void:
 		while (next - $PlayerBird.position.x < 1500):
 			add_obstacle(next)
 			next += spacing
-	else:
+	elif not EventTracker.pause:
 		if Input.is_action_just_pressed("confirm"):
 			emit_signal("restart")
 

@@ -8,15 +8,15 @@ signal game_completed(game_name)
 @onready var screensize : Vector2 = get_viewport_rect().size # get viewport size
 @onready var game_over_screen : PackedScene = preload("res://MiniGames/game_over.tscn")
 var waves_cleared : int = 0
-var game_over = false
+var game_over : bool = false
 
 func _ready() -> void:
 	$PlayerShip.game_over.connect(_on_game_over)
 	asteroid_wave()
 
-func _process(delta : float):
+func _process(delta : float) -> void:
 	# emit restart if needed
-	if game_over and Input.is_action_just_pressed("confirm"):
+	if game_over and not EventTracker.pause and Input.is_action_just_pressed("confirm"):
 		restart.emit()
 	
 	# new wave when current defeated
