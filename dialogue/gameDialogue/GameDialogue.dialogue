@@ -40,6 +40,7 @@ I figured less choices would make things easier for you.
 Now, go ahead and pick out a game and let's get this party started!
 => END
 ~ MiniGameEnd
+$> EventTracker.pause = true
 Wow, you got...
 match EventTracker.last_game:
 	when "FlappyBirdCompleted":
@@ -95,7 +96,8 @@ match EventTracker.last_game:
 			Well... That probably means nothing.
 if EventTracker.events["FirstGameCompleted"] == 0:
 	Let's move on with the tour!
-	{{ EventTracker.events["FirstGameCompleted"] += 1}}
+	$> EventTracker.events["FirstGameCompleted"] += 1
+$> EventTracker.pause = false
 => END
 
 ~ GachaGameDirection

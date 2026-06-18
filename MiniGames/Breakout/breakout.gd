@@ -22,7 +22,7 @@ func _ready() -> void:
 			$Bricks.add_child(instance)
 
 func _process(delta : float) -> void:
-	if game_over and Input.is_action_just_pressed("confirm"):
+	if game_over and not EventTracker.pause and Input.is_action_just_pressed("confirm"):
 		emit_signal("restart")
 
 # get the color name from row num

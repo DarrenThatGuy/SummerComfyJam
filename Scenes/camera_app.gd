@@ -10,7 +10,7 @@ func _physics_process(delta : float) -> void:
 	# don't allow movement or more photos if one just taken
 	if not photo_taken:
 		# if enter or space pressed, show ghost photo
-		if Input.is_action_just_pressed("confirm"):
+		if Input.is_action_just_pressed("confirm") and not EventTracker.pause:
 			photo_taken = true
 			%RoomBackground.reveal_ghost()
 			$PhotoDuration.start()

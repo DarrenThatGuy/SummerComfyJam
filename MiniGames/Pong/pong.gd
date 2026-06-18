@@ -22,7 +22,7 @@ func _ready() -> void:
 	ball.launch(Vector2.LEFT)
 
 func _process(delta : float) -> void:
-	if game_over and Input.is_action_just_pressed("confirm"):
+	if game_over and not EventTracker.pause and Input.is_action_just_pressed("confirm"):
 		emit_signal("restart")
 
 # handle score increase, then either relaunch ball or end game
