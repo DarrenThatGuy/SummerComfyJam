@@ -18,8 +18,16 @@ func _physics_process(delta : float) -> void:
 	if Input.is_action_just_pressed("jump") and not dead:
 		velocity.y = -jump
 		$FlapSound.play()
+		
+		# rotate sprite to face upwards
+		$Sprite2D.rotation = -PI/3
+		$FlapTime.start()
 	else:
 		velocity.y += gravity
 	move_and_slide()
 	
 	camera.global_position.x = $CameraLoc.global_position.x
+
+func _on_flap_time_timeout() -> void:
+	# after delay, rotate sprite to face downwards
+	$Sprite2D.rotation = PI/3

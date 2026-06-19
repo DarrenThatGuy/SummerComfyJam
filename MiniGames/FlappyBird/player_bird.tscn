@@ -1,20 +1,21 @@
 [gd_scene format=3 uid="uid://0x6umgb1ordh"]
 
 [ext_resource type="Script" uid="uid://cyqvusi1m1wtb" path="res://MiniGames/FlappyBird/player_bird.gd" id="1_kmbn4"]
-[ext_resource type="Texture2D" uid="uid://vn0yxtyr7ohj" path="res://icon.svg" id="1_mplop"]
+[ext_resource type="Texture2D" uid="uid://ckdxtgv7gd8ya" path="res://Assets/Art/plane.png" id="2_x4itq"]
 [ext_resource type="AudioStream" uid="uid://b08loyvot181s" path="res://Assets/SFX/Flappy Bird Flap.mp3" id="3_x4itq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kmbn4"]
-size = Vector2(50, 50)
+size = Vector2(50, 20)
 
 [node name="PlayerBird" type="CharacterBody2D" unique_id=1327414920]
 script = ExtResource("1_kmbn4")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=471930211]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_mplop")
+texture = ExtResource("2_x4itq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1090060499]
+position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_kmbn4")
 
 [node name="CameraLoc" type="Marker2D" parent="." unique_id=279576361]
@@ -22,3 +23,8 @@ position = Vector2(250, 0)
 
 [node name="FlapSound" type="AudioStreamPlayer2D" parent="." unique_id=186462531]
 stream = ExtResource("3_x4itq")
+
+[node name="FlapTime" type="Timer" parent="." unique_id=1602572850]
+wait_time = 0.25
+
+[connection signal="timeout" from="FlapTime" to="." method="_on_flap_time_timeout"]
