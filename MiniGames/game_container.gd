@@ -39,6 +39,9 @@ func _on_restart() -> void:
 
 func _on_home_button_pressed() -> void:
 	change_phone_scene.emit("res://Scenes/main_screen.tscn", 'EnteredHomeScreen')
+	
+func _on_settings_button_pressed() -> void:
+	change_phone_scene.emit("res://Scenes/settings_app.tscn", 'EnteredSettingsApp')
 
 func _on_got_secret_score() -> void:
 	trigger_secret_score.emit()

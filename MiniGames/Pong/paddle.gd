@@ -25,5 +25,10 @@ func _physics_process(delta : float) -> void:
 	
 # bounce ball in correct direction
 func reflect(velocity : Vector2) -> Vector2:
+	if is_player:
+		$PlayerSound.play()
+	else:
+		$AISound.play()
+	
 	velocity.x *= -1
 	return velocity

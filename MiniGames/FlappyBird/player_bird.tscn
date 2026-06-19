@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cyqvusi1m1wtb" path="res://MiniGames/FlappyBird/player_bird.gd" id="1_kmbn4"]
 [ext_resource type="Texture2D" uid="uid://vn0yxtyr7ohj" path="res://icon.svg" id="1_mplop"]
+[ext_resource type="AudioStream" uid="uid://b08loyvot181s" path="res://Assets/SFX/Flappy Bird Flap.mp3" id="3_x4itq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kmbn4"]
 size = Vector2(50, 50)
@@ -18,3 +19,6 @@ shape = SubResource("RectangleShape2D_kmbn4")
 
 [node name="CameraLoc" type="Marker2D" parent="." unique_id=279576361]
 position = Vector2(250, 0)
+
+[node name="FlapSound" type="AudioStreamPlayer2D" parent="." unique_id=186462531]
+stream = ExtResource("3_x4itq")

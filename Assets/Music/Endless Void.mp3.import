@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://btmaese74b5oo"
+path="res://.godot/imported/Endless Void.mp3-ce0d6c1dd88f8ec20dd4125d45c9a0eb.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Endless Void.mp3"
+dest_files=["res://.godot/imported/Endless Void.mp3-ce0d6c1dd88f8ec20dd4125d45c9a0eb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cov0rxnsont18" path="res://PhoneResources/phone.gd" id="1_jpee5"]
 [ext_resource type="Script" uid="uid://8daijt5acces" path="res://PhoneResources/button.gd" id="2_hi2mt"]
 [ext_resource type="Texture2D" uid="uid://vn0yxtyr7ohj" path="res://icon.svg" id="3_hi2mt"]
+[ext_resource type="Texture2D" uid="uid://c1gbkxcjpmqkc" path="res://Assets/Art/phone-portrait.png" id="4_0jpdd"]
 
 [sub_resource type="Theme" id="Theme_pfq2b"]
 
@@ -10,15 +11,6 @@
 scale = Vector2(1.58, 1.6439791)
 polygon = PackedVector2Array(367, 35, 367, 417, 566, 417, 565.60046, 34.911854)
 script = ExtResource("1_jpee5")
-
-[node name="HomeButton" type="Button" parent="." unique_id=2019367854]
-offset_left = 455.6962
-offset_top = 399.03186
-offset_right = 469.6962
-offset_bottom = 412.03186
-script = ExtResource("2_hi2mt")
-scene_path = "res://Scenes/main_screen.tscn"
-event = "EnteredHomeScreen"
 
 [node name="SandwichButton" type="Button" parent="." unique_id=639367038]
 offset_left = 389.8734
@@ -32,9 +24,9 @@ event = "OrderedFood"
 
 [node name="Label" type="Label" parent="." unique_id=957921937]
 offset_left = 389.8734
-offset_top = 43.796177
+offset_top = 51.70382
 offset_right = 547.8734
-offset_bottom = 92.79617
+offset_bottom = 100.70382
 theme = SubResource("Theme_pfq2b")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Order Food Now!
@@ -43,9 +35,9 @@ horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="." unique_id=1298207488]
 offset_left = 389.8734
-offset_top = 223.84714
+offset_top = 231.75478
 offset_right = 547.8734
-offset_bottom = 272.84714
+offset_bottom = 280.75476
 theme = SubResource("Theme_pfq2b")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Only $10.99!"
@@ -53,9 +45,9 @@ horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="." unique_id=919503910]
 offset_left = 389.8734
-offset_top = 248.17834
+offset_top = 256.086
 offset_right = 547.8734
-offset_bottom = 297.17834
+offset_bottom = 309.086
 theme = SubResource("Theme_pfq2b")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 7
@@ -66,10 +58,41 @@ text = "+$5.99 Delivery Fee
 horizontal_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=600594131]
-position = Vector2(469.62024, 160.58598)
+position = Vector2(469.62024, 168.49362)
 texture = ExtResource("3_hi2mt")
 
-[connection signal="pressed" from="HomeButton" to="HomeButton" method="_on_pressed"]
-[connection signal="send_button_data" from="HomeButton" to="." method="_on_send_button_data"]
+[node name="PhoneSprite" type="Sprite2D" parent="." unique_id=624104652]
+z_index = 1
+position = Vector2(463.92404, 228.10509)
+scale = Vector2(0.21, 0.21)
+texture = ExtResource("4_0jpdd")
+metadata/_edit_lock_ = true
+
+[node name="SettingsApp" type="Button" parent="." unique_id=589991397]
+offset_left = 379.11392
+offset_top = 400.2484
+offset_right = 442.11392
+offset_bottom = 429.44586
+theme_override_font_sizes/font_size = 14
+text = "Settings"
+script = ExtResource("2_hi2mt")
+scene_path = "res://Scenes/settings_app.tscn"
+event = "EnteredSettingsApp"
+
+[node name="HomeButton" type="Button" parent="." unique_id=2128819252]
+offset_left = 444.30377
+offset_top = 400.24844
+offset_right = 499.30377
+offset_bottom = 431.24844
+text = "Home"
+script = ExtResource("2_hi2mt")
+scene_path = "res://Scenes/main_screen.tscn"
+event = "EnteredHomeScreen"
+metadata/_edit_use_anchors_ = true
+
 [connection signal="pressed" from="SandwichButton" to="SandwichButton" method="_on_pressed"]
 [connection signal="send_button_data" from="SandwichButton" to="." method="_on_send_button_data"]
+[connection signal="pressed" from="SettingsApp" to="SettingsApp" method="_on_pressed"]
+[connection signal="send_button_data" from="SettingsApp" to="." method="_on_send_button_data"]
+[connection signal="pressed" from="HomeButton" to="HomeButton" method="_on_pressed"]
+[connection signal="send_button_data" from="HomeButton" to="." method="_on_send_button_data"]

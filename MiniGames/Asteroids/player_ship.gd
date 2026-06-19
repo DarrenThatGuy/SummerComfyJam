@@ -29,6 +29,7 @@ func _physics_process(delta : float) -> void:
 		instance.position = $BulletLoc.global_position
 		instance.rotation = rotation
 		add_sibling(instance)
+		$LaserSound.play()
 	
 	# apply forces
 	constant_force = thrust

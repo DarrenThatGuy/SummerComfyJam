@@ -4,17 +4,8 @@
 [ext_resource type="Script" uid="uid://c6in63cfbaa45" path="res://Scenes/camera_app.gd" id="1_qk756"]
 [ext_resource type="Script" uid="uid://8daijt5acces" path="res://PhoneResources/button.gd" id="2_8hn6r"]
 [ext_resource type="PackedScene" uid="uid://dyyqwtdvg1678" path="res://Scenes/room_background.tscn" id="3_8hn6r"]
-
-[sub_resource type="Gradient" id="Gradient_5neta"]
-offsets = PackedFloat32Array(0, 0.018072288, 1)
-colors = PackedColorArray(1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_qk756"]
-gradient = SubResource("Gradient_5neta")
-width = 1150
-height = 650
-fill = 1
-fill_from = Vector2(0.49130434, 0.51086956)
+[ext_resource type="Texture2D" uid="uid://c1gbkxcjpmqkc" path="res://Assets/Art/phone-portrait.png" id="3_uplgo"]
+[ext_resource type="Texture2D" uid="uid://b51j80cqi8a3u" path="res://Assets/Art/camera-minigame.png" id="5_lnpys"]
 
 [node name="CameraApp" type="Node2D" unique_id=725435409]
 script = ExtResource("1_qk756")
@@ -27,20 +18,10 @@ one_shot = true
 position = Vector2(184, 50)
 
 [node name="Phone" type="Polygon2D" parent="Offset" unique_id=1481380087]
-position = Vector2(-566, -49.999996)
+position = Vector2(-563, -50)
 scale = Vector2(1.58, 1.6439791)
 polygon = PackedVector2Array(367, 35, 367, 417, 566, 417, 565.60046, 34.911854, 393.651, 34.988174)
 script = ExtResource("1_2h8eb")
-
-[node name="HomeButton" type="Button" parent="Offset/Phone" unique_id=2019367854]
-offset_left = 455.6962
-offset_top = 399.03186
-offset_right = 469.6962
-offset_bottom = 412.03186
-script = ExtResource("2_8hn6r")
-scene_path = "res://Scenes/main_screen.tscn"
-event = "EnteredHomeScreen"
-metadata/_edit_use_anchors_ = true
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Offset/Phone" unique_id=1585533166]
 offset_left = 370.88608
@@ -57,14 +38,45 @@ render_target_update_mode = 4
 [node name="RoomBackground" parent="Offset/Phone/SubViewportContainer/SubViewport" unique_id=1472395247 instance=ExtResource("3_8hn6r")]
 unique_name_in_owner = true
 
+[node name="PhoneSprite" type="Sprite2D" parent="Offset/Phone" unique_id=2131104427]
+z_index = 1
+position = Vector2(463.92404, 228.10509)
+scale = Vector2(0.21, 0.21)
+texture = ExtResource("3_uplgo")
+metadata/_edit_lock_ = true
+
+[node name="SettingsApp" type="Button" parent="Offset/Phone" unique_id=1477269783]
+offset_left = 379.11392
+offset_top = 400.2484
+offset_right = 442.11392
+offset_bottom = 429.44586
+theme_override_font_sizes/font_size = 14
+text = "Settings"
+script = ExtResource("2_8hn6r")
+scene_path = "res://Scenes/settings_app.tscn"
+event = "EnteredSettingsApp"
+
+[node name="HomeButton" type="Button" parent="Offset/Phone" unique_id=2019367854]
+offset_left = 444.30377
+offset_top = 400.24844
+offset_right = 499.30377
+offset_bottom = 431.24844
+text = "Home"
+script = ExtResource("2_8hn6r")
+scene_path = "res://Scenes/main_screen.tscn"
+event = "EnteredHomeScreen"
+metadata/_edit_use_anchors_ = true
+
 [node name="NormalBackground" type="Sprite2D" parent="Offset" unique_id=1525842268]
 z_index = -5
-position = Vector2(572, 322)
-texture = SubResource("GradientTexture2D_qk756")
-metadata/_edit_lock_ = true
+position = Vector2(395, 279)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("5_lnpys")
 
 [connection signal="timeout" from="PhotoDuration" to="." method="_on_photo_duration_timeout"]
 [connection signal="change_phone_scene" from="Offset/Phone" to="." method="_on_phone_change_phone_scene"]
+[connection signal="ghost_found" from="Offset/Phone/SubViewportContainer/SubViewport/RoomBackground" to="." method="_on_room_background_ghost_found"]
+[connection signal="pressed" from="Offset/Phone/SettingsApp" to="Offset/Phone/SettingsApp" method="_on_pressed"]
+[connection signal="send_button_data" from="Offset/Phone/SettingsApp" to="Offset/Phone" method="_on_send_button_data"]
 [connection signal="pressed" from="Offset/Phone/HomeButton" to="Offset/Phone/HomeButton" method="_on_pressed"]
 [connection signal="send_button_data" from="Offset/Phone/HomeButton" to="Offset/Phone" method="_on_send_button_data"]
-[connection signal="ghost_found" from="Offset/Phone/SubViewportContainer/SubViewport/RoomBackground" to="." method="_on_room_background_ghost_found"]

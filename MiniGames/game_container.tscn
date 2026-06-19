@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://f2eh15sgjn7f"]
 
 [ext_resource type="Script" uid="uid://cwa78pa6fvwpa" path="res://MiniGames/game_container.gd" id="1_hqhhl"]
+[ext_resource type="Texture2D" uid="uid://b5wlubciocat5" path="res://Assets/Art/phone-landscape.png" id="2_dh4f8"]
 
 [node name="GameContainer" type="Control" unique_id=1000907114]
 layout_mode = 3
@@ -15,30 +16,44 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 183.0
-offset_top = 131.0
-offset_right = 823.0
-offset_bottom = 431.0
+offset_left = 191.0
+offset_top = 134.0
+offset_right = 821.0
+offset_bottom = 429.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1383891461]
 handle_input_locally = false
-size = Vector2i(680, 340)
+audio_listener_enable_2d = true
+size = Vector2i(670, 335)
 size_2d_override = Vector2i(1152, 648)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
 [node name="HorizScreen" type="Polygon2D" parent="." unique_id=1863327214]
 position = Vector2(153, 105)
-polygon = PackedVector2Array(0, 0, 0, 398, 764, 398, 764, 0)
+polygon = PackedVector2Array(-5, 6.5, 7.6987305, 386.99646, 764, 398, 764, 0)
 metadata/_edit_lock_ = true
 
 [node name="HomeButton" type="Button" parent="HorizScreen" unique_id=1701731021]
-offset_left = 718.0
-offset_top = 185.0
-offset_right = 748.0
-offset_bottom = 215.0
+offset_left = 712.0
+offset_top = 133.0
+offset_right = 772.0
+offset_bottom = 243.0
+
+[node name="SettingsButton" type="Button" parent="HorizScreen" unique_id=866032375]
+offset_left = 712.0
+offset_top = 249.0
+offset_right = 772.0
+offset_bottom = 359.0
+
+[node name="PhoneSprite" type="Sprite2D" parent="HorizScreen" unique_id=1239565959]
+z_index = 1
+position = Vector2(418, 181)
+scale = Vector2(0.41, 0.41)
+texture = ExtResource("2_dh4f8")
 
 [connection signal="pressed" from="HorizScreen/HomeButton" to="." method="_on_home_button_pressed"]
+[connection signal="pressed" from="HorizScreen/SettingsButton" to="." method="_on_settings_button_pressed"]

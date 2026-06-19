@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://8daijt5acces" path="res://PhoneResources/button.gd" id="2_ixy83"]
 [ext_resource type="Script" uid="uid://cq3eqldko8cc" path="res://Scenes/picture_manager.gd" id="3_hoat3"]
 [ext_resource type="Texture2D" uid="uid://vn0yxtyr7ohj" path="res://icon.svg" id="4_wgyrq"]
+[ext_resource type="Texture2D" uid="uid://c1gbkxcjpmqkc" path="res://Assets/Art/phone-portrait.png" id="5_wgyrq"]
 
 [sub_resource type="Theme" id="Theme_pfq2b"]
 
@@ -12,19 +13,10 @@ scale = Vector2(1.58, 1.6439791)
 polygon = PackedVector2Array(367, 35, 367, 417, 566, 417, 565.60046, 34.911854)
 script = ExtResource("1_nxc0s")
 
-[node name="HomeButton" type="Button" parent="." unique_id=2019367854]
-offset_left = 455.6962
-offset_top = 399.03186
-offset_right = 469.6962
-offset_bottom = 412.03186
-script = ExtResource("2_ixy83")
-scene_path = "res://Scenes/main_screen.tscn"
-event = "EnteredHomeScreen"
-
 [node name="LeftButton" type="Button" parent="." unique_id=639367038]
-offset_left = 374.68353
+offset_left = 377.84808
 offset_top = 199.51591
-offset_right = 391.68353
+offset_right = 394.84808
 offset_bottom = 230.51591
 text = "L"
 script = ExtResource("2_ixy83")
@@ -70,11 +62,42 @@ position = Vector2(465.82278, 230.53824)
 rotation = 3.1415927
 texture = ExtResource("4_wgyrq")
 
-[connection signal="pressed" from="HomeButton" to="HomeButton" method="_on_pressed"]
-[connection signal="send_button_data" from="HomeButton" to="." method="_on_send_button_data"]
+[node name="PhoneSprite" type="Sprite2D" parent="." unique_id=1268595786]
+z_index = 1
+position = Vector2(463.92404, 228.10509)
+scale = Vector2(0.21, 0.21)
+texture = ExtResource("5_wgyrq")
+metadata/_edit_lock_ = true
+
+[node name="SettingsApp" type="Button" parent="." unique_id=615836364]
+offset_left = 379.11392
+offset_top = 400.2484
+offset_right = 442.11392
+offset_bottom = 429.44586
+theme_override_font_sizes/font_size = 14
+text = "Settings"
+script = ExtResource("2_ixy83")
+scene_path = "res://Scenes/settings_app.tscn"
+event = "EnteredSettingsApp"
+
+[node name="HomeButton" type="Button" parent="." unique_id=415435270]
+offset_left = 444.30377
+offset_top = 400.24844
+offset_right = 499.30377
+offset_bottom = 431.24844
+text = "Home"
+script = ExtResource("2_ixy83")
+scene_path = "res://Scenes/main_screen.tscn"
+event = "EnteredHomeScreen"
+metadata/_edit_use_anchors_ = true
+
 [connection signal="pressed" from="LeftButton" to="LeftButton" method="_on_pressed"]
 [connection signal="pressed" from="LeftButton" to="PictureManager" method="_on_left_button_pressed"]
 [connection signal="send_button_data" from="LeftButton" to="." method="_on_send_button_data"]
 [connection signal="pressed" from="RightButton" to="RightButton" method="_on_pressed"]
 [connection signal="pressed" from="RightButton" to="PictureManager" method="_on_right_button_pressed"]
 [connection signal="send_button_data" from="RightButton" to="." method="_on_send_button_data"]
+[connection signal="pressed" from="SettingsApp" to="SettingsApp" method="_on_pressed"]
+[connection signal="send_button_data" from="SettingsApp" to="." method="_on_send_button_data"]
+[connection signal="pressed" from="HomeButton" to="HomeButton" method="_on_pressed"]
+[connection signal="send_button_data" from="HomeButton" to="." method="_on_send_button_data"]

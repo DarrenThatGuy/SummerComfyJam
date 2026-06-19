@@ -2,7 +2,14 @@
 
 [ext_resource type="Script" uid="uid://jacf2g6ii1im" path="res://PhoneResources/MainScreen.gd" id="1_w0p2i"]
 [ext_resource type="Script" uid="uid://8daijt5acces" path="res://PhoneResources/button.gd" id="2_7a4el"]
+[ext_resource type="Texture2D" uid="uid://b02wlqwomcwhj" path="res://Assets/Art/weather-app.png" id="3_8b1if"]
 [ext_resource type="Script" uid="uid://dwqb17a7gjeg0" path="res://Scenes/label.gd" id="3_wi85j"]
+[ext_resource type="Texture2D" uid="uid://cj5be0rnukqpu" path="res://Assets/Art/video-app.png" id="4_kipn8"]
+[ext_resource type="Texture2D" uid="uid://cox3hk2yvpsb4" path="res://Assets/Art/camera.png" id="5_ib1yv"]
+[ext_resource type="Texture2D" uid="uid://rsbkqm65h1st" path="res://Assets/Art/gallery-app.png" id="6_rfxh6"]
+[ext_resource type="Texture2D" uid="uid://b8xuqkrikgvdf" path="res://Assets/Art/shopping-app.png" id="7_74ojv"]
+[ext_resource type="Texture2D" uid="uid://c6vj4afugies0" path="res://Assets/Art/food-app.png" id="8_ef1tx"]
+[ext_resource type="Texture2D" uid="uid://c1gbkxcjpmqkc" path="res://Assets/Art/phone-portrait.png" id="11_kipn8"]
 
 [node name="MainScreen" type="Polygon2D" unique_id=372573881]
 position = Vector2(-80, -64)
@@ -11,10 +18,11 @@ polygon = PackedVector2Array(367, 35, 367, 417, 566, 417, 565.60046, 34.911854)
 script = ExtResource("1_w0p2i")
 
 [node name="HomeButton" type="Button" parent="." unique_id=40921591]
-offset_left = 462.02533
-offset_top = 399.64017
-offset_right = 476.02533
-offset_bottom = 412.64017
+offset_left = 443.67087
+offset_top = 399.6401
+offset_right = 498.67087
+offset_bottom = 430.6401
+text = "Home"
 script = ExtResource("2_7a4el")
 scene_path = "res://Scenes/main_screen.tscn"
 event = "EnteredHomeScreen"
@@ -30,6 +38,11 @@ script = ExtResource("2_7a4el")
 scene_path = "res://Scenes/weather_app.tscn"
 event = "EnteredWeatherApp"
 
+[node name="Sprite2D" type="Sprite2D" parent="WeatherApp" unique_id=1728094183]
+position = Vector2(15, 15)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("3_8b1if")
+
 [node name="VideoApp" type="Button" parent="." unique_id=293941926]
 offset_left = 430.37973
 offset_top = 121.65606
@@ -40,6 +53,11 @@ text = "Video"
 script = ExtResource("2_7a4el")
 scene_path = "res://Scenes/video_app.tscn"
 event = "EnteredVideoApp"
+
+[node name="Sprite2D" type="Sprite2D" parent="VideoApp" unique_id=1814759366]
+position = Vector2(15, 15)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("4_kipn8")
 
 [node name="CameraApp" type="Button" parent="." unique_id=426918946]
 offset_left = 465.82278
@@ -52,6 +70,11 @@ script = ExtResource("2_7a4el")
 scene_path = "res://Scenes/camera_app.tscn"
 event = "EnteredCameraApp"
 
+[node name="Sprite2D" type="Sprite2D" parent="CameraApp" unique_id=65769174]
+position = Vector2(15, 15)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("5_ib1yv")
+
 [node name="GalleryApp" type="Button" parent="." unique_id=2048977336]
 offset_left = 501.2658
 offset_top = 121.65605
@@ -62,6 +85,11 @@ text = "Gellery"
 script = ExtResource("2_7a4el")
 scene_path = "res://Scenes/gallery_app.tscn"
 event = "EnteredGalleryApp"
+
+[node name="Sprite2D" type="Sprite2D" parent="GalleryApp" unique_id=486009697]
+position = Vector2(15, 15)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("6_rfxh6")
 
 [node name="FlappyApp" type="Button" parent="." unique_id=1916497574]
 offset_left = 394.9367
@@ -118,6 +146,11 @@ script = ExtResource("2_7a4el")
 scene_path = "res://Scenes/storefront_app.tscn"
 event = "EnteredStorefrontApp"
 
+[node name="Sprite2D" type="Sprite2D" parent="StorefrontApp" unique_id=863375780]
+position = Vector2(15, 15)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("7_74ojv")
+
 [node name="FoodOrderApp" type="Button" parent="." unique_id=1711482072]
 offset_left = 430.37973
 offset_top = 218.98088
@@ -128,6 +161,11 @@ text = "Instacart"
 script = ExtResource("2_7a4el")
 scene_path = "res://Scenes/food_app.tscn"
 event = "EnteredFoodApp"
+
+[node name="Sprite2D" type="Sprite2D" parent="FoodOrderApp" unique_id=440408241]
+position = Vector2(15, 15)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("8_ef1tx")
 
 [node name="GachaApp" type="Button" parent="." unique_id=662030929]
 offset_left = 465.82275
@@ -141,26 +179,33 @@ scene_path = "res://Scenes/gacha_app.tscn"
 event = "EnteredGachaApp"
 
 [node name="SettingsApp" type="Button" parent="." unique_id=1821833758]
-offset_left = 501.2658
-offset_top = 218.98088
-offset_right = 531.64557
-offset_bottom = 248.17831
-theme_override_font_sizes/font_size = 4
+offset_left = 379.11392
+offset_top = 400.2484
+offset_right = 442.11392
+offset_bottom = 429.44586
+theme_override_font_sizes/font_size = 14
 text = "Settings"
 script = ExtResource("2_7a4el")
 scene_path = "res://Scenes/settings_app.tscn"
 event = "EnteredSettingsApp"
 
 [node name="Label" type="Label" parent="." unique_id=1987961885]
-offset_left = 399.99997
+offset_left = 407.59494
 offset_top = 48.662422
-offset_right = 521.519
+offset_right = 529.11395
 offset_bottom = 115.66242
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 36
 text = "00:00"
 horizontal_alignment = 1
 script = ExtResource("3_wi85j")
+
+[node name="PhoneSprite" type="Sprite2D" parent="." unique_id=295259696]
+z_index = 1
+position = Vector2(463.92404, 228.10509)
+scale = Vector2(0.21, 0.21)
+texture = ExtResource("11_kipn8")
+metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="HomeButton" to="HomeButton" method="_on_pressed"]
 [connection signal="send_button_data" from="HomeButton" to="." method="_on_send_button_data"]

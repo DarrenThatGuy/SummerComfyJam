@@ -17,8 +17,10 @@ func _on_body_entered(body: Node2D) -> void:
 		emit_signal("points", body.points)
 		body.queue_free()
 		velocity.y *= -1
+		$BrickSound.play()
 	else:
 		velocity = body.reflect(velocity)
+		$PlayerSound.play()
 
 func _on_area_entered(area: Area2D) -> void:
 	emit_signal("dead")
