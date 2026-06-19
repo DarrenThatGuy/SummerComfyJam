@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dex8vm3wrk3kv"
+path="res://.godot/imported/Player Pong-Breakout.mp3-605da375ea4a828285378964446a40f7.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Player Pong-Breakout.mp3"
+dest_files=["res://.godot/imported/Player Pong-Breakout.mp3-605da375ea4a828285378964446a40f7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

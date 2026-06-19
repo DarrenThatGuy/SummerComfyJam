@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b7wx47k32ykqg" path="res://MiniGames/Asteroids/asteroids_game.gd" id="1_ek38m"]
 [ext_resource type="PackedScene" uid="uid://gt3661utuhw7" path="res://MiniGames/Asteroids/player_ship.tscn" id="2_flsbf"]
+[ext_resource type="AudioStream" uid="uid://fuo1o830b77d" path="res://Assets/Music/Disasteroid.mp3" id="3_flsbf"]
 
 [sub_resource type="Gradient" id="Gradient_hhpf8"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -27,3 +28,7 @@ linear_damp = 1.0
 angular_damp = 1.5
 
 [node name="Asteroids" type="Node2D" parent="." unique_id=403069367]
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=2096710194]
+stream = ExtResource("3_flsbf")
+autoplay = true

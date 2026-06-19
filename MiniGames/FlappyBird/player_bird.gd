@@ -17,6 +17,7 @@ func _physics_process(delta : float) -> void:
 	velocity.x = speed
 	if Input.is_action_just_pressed("jump") and not dead:
 		velocity.y = -jump
+		$FlapSound.play()
 	else:
 		velocity.y += gravity
 	move_and_slide()

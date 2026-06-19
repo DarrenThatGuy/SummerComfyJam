@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cov0rxnsont18" path="res://PhoneResources/phone.gd" id="1_fdp1x"]
 [ext_resource type="Script" uid="uid://8daijt5acces" path="res://PhoneResources/button.gd" id="2_bm6dd"]
+[ext_resource type="AudioStream" uid="uid://bv7j0aceifxsh" path="res://Assets/Music/The Weather Outside Is Weather.mp3" id="3_bm6dd"]
+[ext_resource type="Texture2D" uid="uid://c1gbkxcjpmqkc" path="res://Assets/Art/phone-portrait.png" id="3_w8722"]
 
 [sub_resource type="Theme" id="Theme_pfq2b"]
 
@@ -9,15 +11,6 @@
 scale = Vector2(1.58, 1.6439791)
 polygon = PackedVector2Array(367, 35, 367, 417, 566, 417, 565.60046, 34.911854)
 script = ExtResource("1_fdp1x")
-
-[node name="HomeButton" type="Button" parent="." unique_id=2019367854]
-offset_left = 455.6962
-offset_top = 399.03186
-offset_right = 469.6962
-offset_bottom = 412.03186
-script = ExtResource("2_bm6dd")
-scene_path = "res://Scenes/main_screen.tscn"
-event = "EnteredHomeScreen"
 
 [node name="Label" type="Label" parent="." unique_id=957921937]
 offset_left = 415.18988
@@ -28,5 +21,40 @@ theme = SubResource("Theme_pfq2b")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Weather App"
 
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1161058191]
+stream = ExtResource("3_bm6dd")
+autoplay = true
+
+[node name="PhoneSprite" type="Sprite2D" parent="." unique_id=1482381077]
+z_index = 1
+position = Vector2(463.92404, 228.10509)
+scale = Vector2(0.21, 0.21)
+texture = ExtResource("3_w8722")
+metadata/_edit_lock_ = true
+
+[node name="SettingsApp" type="Button" parent="." unique_id=683167984]
+offset_left = 379.11392
+offset_top = 400.2484
+offset_right = 442.11392
+offset_bottom = 429.44586
+theme_override_font_sizes/font_size = 14
+text = "Settings"
+script = ExtResource("2_bm6dd")
+scene_path = "res://Scenes/settings_app.tscn"
+event = "EnteredSettingsApp"
+
+[node name="HomeButton" type="Button" parent="." unique_id=834368509]
+offset_left = 444.30377
+offset_top = 400.24844
+offset_right = 499.30377
+offset_bottom = 431.24844
+text = "Home"
+script = ExtResource("2_bm6dd")
+scene_path = "res://Scenes/main_screen.tscn"
+event = "EnteredHomeScreen"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="SettingsApp" to="SettingsApp" method="_on_pressed"]
+[connection signal="send_button_data" from="SettingsApp" to="." method="_on_send_button_data"]
 [connection signal="pressed" from="HomeButton" to="HomeButton" method="_on_pressed"]
 [connection signal="send_button_data" from="HomeButton" to="." method="_on_send_button_data"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ddnlqh461128l"
+path="res://.godot/imported/Asteroid - Player Laser.mp3-29c6acac26dba9b94d73d42c6a616fd6.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Asteroid - Player Laser.mp3"
+dest_files=["res://.godot/imported/Asteroid - Player Laser.mp3-29c6acac26dba9b94d73d42c6a616fd6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

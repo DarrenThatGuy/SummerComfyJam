@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://c5fu5q3n1yfhk"]
 
 [ext_resource type="Script" uid="uid://br34et814b6wb" path="res://MiniGames/Pong/paddle.gd" id="1_fh15p"]
+[ext_resource type="AudioStream" uid="uid://dex8vm3wrk3kv" path="res://Assets/SFX/Player Pong-Breakout.mp3" id="2_mukc5"]
+[ext_resource type="AudioStream" uid="uid://r6242oi0b4qu" path="res://Assets/SFX/AI - Pong-Breakout.mp3" id="3_pu4kh"]
 
 [sub_resource type="Gradient" id="Gradient_e31lx"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -20,3 +22,9 @@ texture = SubResource("GradientTexture2D_amhnx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=935450793]
 shape = SubResource("RectangleShape2D_a5bw2")
+
+[node name="PlayerSound" type="AudioStreamPlayer2D" parent="." unique_id=429897978]
+stream = ExtResource("2_mukc5")
+
+[node name="AISound" type="AudioStreamPlayer2D" parent="." unique_id=1975288711]
+stream = ExtResource("3_pu4kh")

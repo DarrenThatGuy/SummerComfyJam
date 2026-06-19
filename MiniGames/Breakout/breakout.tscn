@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b6htwb8jg37rr" path="res://MiniGames/Breakout/paddle.tscn" id="1_oxwke"]
 [ext_resource type="PackedScene" uid="uid://cgomn0lrp2w2v" path="res://MiniGames/Breakout/brick.tscn" id="2_o5w3b"]
 [ext_resource type="Script" uid="uid://cobrm82g53noa" path="res://MiniGames/Breakout/bounds.gd" id="3_e0d14"]
+[ext_resource type="AudioStream" uid="uid://bpnfudmno6nqs" path="res://Assets/Music/Outbreak.mp3" id="5_uvq0i"]
 
 [sub_resource type="Gradient" id="Gradient_oxwke"]
 interpolation_mode = 1
@@ -68,3 +69,7 @@ position = Vector2(576, 658)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameOver" unique_id=1354182138]
 shape = SubResource("RectangleShape2D_e0d14")
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1123691556]
+stream = ExtResource("5_uvq0i")
+autoplay = true

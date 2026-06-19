@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://cpdga684yprnb" path="res://PhoneResources/event_handler.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://cjfwcpwlke76s" path="res://Scenes/main_screen.tscn" id="1_ig7tw"]
 [ext_resource type="Resource" uid="uid://clns3kscyxtqw" path="res://dialogue/gameDialogue/GameDialogue.dialogue" id="2_1bvp3"]
+[ext_resource type="AudioStream" uid="uid://b7wgpre3xu4u7" path="res://Assets/SFX/Phone Start Up.mp3" id="5_lquwl"]
+[ext_resource type="Texture2D" uid="uid://b43w6ke5wawjs" path="res://Assets/Art/bedroom.png" id="6_7mycd"]
 
 [node name="Main" type="Node2D" unique_id=9885645]
 
@@ -17,6 +19,17 @@ script = ExtResource("1_0xm2m")
 
 [node name="MainScreen" parent="PhoneContainer" unique_id=628004550 instance=ExtResource("1_ig7tw")]
 position = Vector2(-123, -53)
+
+[node name="StartupSound" type="AudioStreamPlayer2D" parent="." unique_id=881666906]
+stream = ExtResource("5_lquwl")
+autoplay = true
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1571210805]
+z_index = -5
+position = Vector2(574.99994, 324)
+scale = Vector2(0.44, 0.44)
+texture = ExtResource("6_7mycd")
+metadata/_edit_lock_ = true
 
 [connection signal="check_events" from="PhoneContainer" to="EventHandler" method="_on_phone_container_check_events"]
 [connection signal="trigger_event" from="PhoneContainer" to="EventHandler" method="_on_phone_container_trigger_event"]
